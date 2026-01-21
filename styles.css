@@ -1,0 +1,180 @@
+body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        background-color: #0077be;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      h1 {
+        margin: 0;
+      }
+      nav {
+        background-color: #87ceeb;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+      }
+      section {
+        margin-bottom: 30px;
+      }
+      h2 {
+        color: #0077be;
+      }
+      p {
+        line-height: 1.5;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      footer {
+        background-color: #0077be;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      .emblem {
+        width: 150px;
+        height: 150px;
+      }
+      .flag {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+		body {
+    /* Убираю отступы. */
+    margin:0px;
+    /* Убираю еще отступы. */
+    padding:0px;
+    /* Задаю шрифт. */
+    font: 14px 'Verdana';
+}
+ul {
+    /* Убираю маркеры у списка*/
+    list-style: none;
+    /* Делаю элементы блочными. */
+    display: block;
+    /* Убираю отступы. */
+    margin:0px;
+    /* Убираю еще отступы! */
+    padding:0px;
+}
+ul:after {
+    /* Делаю элементы блочными. */
+    display: block;
+    /* Убираю выравнивание. */
+    float: none;
+    content: ' ';
+    clear: both;
+}
+ul.mmenuu > li {
+    /* Задаю выравнивание и позиционирование. */
+    float: left;
+    /* Считаем координаты относительно исходного места*/
+    position: relative;
+}
+ul.mmenuu > li > a {
+    /* Делаю элементы блочными: */
+    display: block;
+    /* Задаю белый цвет. */
+    color: #fff;
+    /* Задаю отступ 10px. */
+    padding: 10px;
+    /* Убираю форматирование*/
+    text-decoration: none;
+    /* Задаю цвет. */
+    background-color: #0077be;
+}
+ul.mmenuu > li > a:hover {
+    /* Задаю цвет при наведении. */
+    background-color: #6495ED;
+}
+ul.ssubmenuu {
+    position: absolute;
+    width: 240px;
+    top: 37px;
+    left:0px;
+    /* Делаю субменю скрытыми. */
+    display: none;
+    /* Цвет — белый. */
+    background-color: white;
+}
+ul.ssubmenuu > li {
+    /* Блочное расположение элементов*/
+    display: block;
+}
+ul.ssubmenuu > li > a {
+    /* Делаю элементы блочными. */
+    display: block;
+    /* Убираю форматирование*/
+    text-decoration: none;
+    /* Задаю отступ. */
+    padding: 10px;
+    /* Задаю цвет. */
+    color: #ffffff;
+    /* Еще цвет. */
+    background-color: #0077be;
+}
+ul.ssubmenuu > li > a:hover {
+    /* Цвет бэкграунда при наведении. */
+    background-color: #6495ED;
+    /* Задаю подчеркивание*/
+    text-decoration: underline;
+}
+ul.mmenuu > li:hover > ul.ssubmenuu {
+    /* Делаю элементы блочными. */
+    display: block;
+}
+table {
+	width: 100%;
+	border: none;
+	margin-bottom: 20px;
+}
+table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+table tbody td {
+	text-align: left;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+table thead tr th:first-child, .table tbody tr td:first-child {
+	border-left: none;
+}
+table thead tr th:last-child, .table tbody tr td:last-child {
+	border-right: none;
+}
+table tbody tr:nth-child(even){
+	background: #f3f3f3;
+}
+.thumb img  {
+	padding: 15px;
+}
