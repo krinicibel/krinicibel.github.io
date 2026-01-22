@@ -20,7 +20,9 @@
     lb.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
     lb.querySelector('.lightbox__prev').addEventListener('click', showPrev);
     lb.querySelector('.lightbox__next').addEventListener('click', showNext);
-    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLightbox();
+    });
 
     return lb;
   }
@@ -44,7 +46,10 @@
     const src = currentGroup[currentIndex];
     img.src = src;
     const meta = currentGroup._meta && currentGroup._meta[currentIndex];
-    const alt = meta?.tagName === 'IMG' ? meta.alt || '' : (meta?.querySelector?.('img')?.alt || meta?.alt || '');
+    const alt =
+      meta?.tagName === 'IMG'
+        ? meta.alt || ''
+        : meta?.querySelector?.('img')?.alt || meta?.alt || '';
     img.alt = alt || '';
     caption.textContent = alt || '';
     const showNav = currentGroup.length > 1;
@@ -59,8 +64,16 @@
     document.body.style.overflow = '';
   }
 
-  function showNext() { if (!currentGroup.length) return; currentIndex = (currentIndex + 1) % currentGroup.length; updateLightbox(); }
-  function showPrev() { if (!currentGroup.length) return; currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length; updateLightbox(); }
+  function showNext() {
+    if (!currentGroup.length) return;
+    currentIndex = (currentIndex + 1) % currentGroup.length;
+    updateLightbox();
+  }
+  function showPrev() {
+    if (!currentGroup.length) return;
+    currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+    updateLightbox();
+  }
 
   function collectGallery(el) {
     if (!el) return [el];
@@ -71,12 +84,16 @@
     }
     const parentGallery = el.closest('.gallery');
     if (parentGallery) {
-      const anchors = Array.from(parentGallery.querySelectorAll('a')).filter(a => IMAGE_RE.test(a.getAttribute('href') || '') || a.querySelector('img'));
+      const anchors = Array.from(parentGallery.querySelectorAll('a')).filter(
+        (a) => IMAGE_RE.test(a.getAttribute('href') || '') || a.querySelector('img')
+      );
       if (anchors.length) return anchors;
     }
     const parent = el.closest('p') || el.parentElement;
     if (parent) {
-      const anchors = Array.from(parent.querySelectorAll('a')).filter(a => IMAGE_RE.test(a.getAttribute('href') || ''));
+      const anchors = Array.from(parent.querySelectorAll('a')).filter((a) =>
+        IMAGE_RE.test(a.getAttribute('href') || '')
+      );
       if (anchors.length) return anchors;
       const imgs = Array.from(parent.querySelectorAll('img'));
       if (imgs.length) return imgs;
@@ -91,7 +108,7 @@
       const nodes = collectGallery(a);
       const items = [];
       items._meta = [];
-      nodes.forEach(node => {
+      nodes.forEach((node) => {
         if (node.tagName === 'A') {
           items.push(node.getAttribute('href'));
           items._meta.push(node);
@@ -106,11 +123,11 @@
     }
 
     const img = e.target.closest('img');
-    if (img && (!img.closest('a'))) {
+    if (img && !img.closest('a')) {
       const nodes = collectGallery(img);
       const items = [];
       items._meta = [];
-      nodes.forEach(node => {
+      nodes.forEach((node) => {
         if (node.tagName === 'A') {
           items.push(node.getAttribute('href'));
           items._meta.push(node);
@@ -137,15 +154,17 @@
   function annotateGalleries() {
     let gid = 0;
     const containers = document.querySelectorAll('p, div');
-    containers.forEach(container => {
-      const anchors = Array.from(container.querySelectorAll('a')).filter(a => IMAGE_RE.test(a.getAttribute('href') || ''));
-      const imgs = Array.from(container.querySelectorAll('img')).filter(img => !img.closest('a'));
+    containers.forEach((container) => {
+      const anchors = Array.from(container.querySelectorAll('a')).filter((a) =>
+        IMAGE_RE.test(a.getAttribute('href') || '')
+      );
+      const imgs = Array.from(container.querySelectorAll('img')).filter((img) => !img.closest('a'));
       if (anchors.length + imgs.length > 1) {
         gid++;
         container.classList.add('gallery');
         const galleryId = 'gallery-' + gid;
-        anchors.forEach(a => a.dataset.gallery = galleryId);
-        imgs.forEach(img => img.dataset.gallery = galleryId);
+        anchors.forEach((a) => (a.dataset.gallery = galleryId));
+        imgs.forEach((img) => (img.dataset.gallery = galleryId));
       }
     });
   }
@@ -161,5 +180,4 @@
   } else {
     init();
   }
-
 })();
