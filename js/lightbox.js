@@ -109,10 +109,17 @@ function handleDocumentClick(e) {
     items._meta = [];
     nodes.forEach((node) => {
       if (node.tagName === 'A') {
-        items.push(node.getAttribute('href'));
+        const childImg = node.querySelector('img');
+        if (childImg && childImg.src) {
+          // prefer the processed img src (Vite rewrites image src to hashed assets)
+          items.push(childImg.src);
+        } else {
+          items.push(node.getAttribute('href'));
+        }
         items._meta.push(node);
       } else if (node.tagName === 'IMG') {
-        items.push(node.getAttribute('src'));
+        // use resolved src (absolute URL) when available
+        items.push(node.src || node.getAttribute('src'));
         items._meta.push(node);
       }
     });
@@ -128,10 +135,15 @@ function handleDocumentClick(e) {
     items._meta = [];
     nodes.forEach((node) => {
       if (node.tagName === 'A') {
-        items.push(node.getAttribute('href'));
+        const childImg = node.querySelector('img');
+        if (childImg && childImg.src) {
+          items.push(childImg.src);
+        } else {
+          items.push(node.getAttribute('href'));
+        }
         items._meta.push(node);
       } else if (node.tagName === 'IMG') {
-        items.push(node.getAttribute('src'));
+        items.push(node.src || node.getAttribute('src'));
         items._meta.push(node);
       }
     });
