@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Святой Барбары</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,13 +50,13 @@
       </section>
       <p dir="ltr">28.01.2025</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#kam">Каменецкий район</a> &gt; г. Высокое &gt; Святой Барбары</p>
-      <p><a href="vys/unnamed (1).jpg"><img src="vys/unnamed (1).jpg"width="259" height="346"></a> <a href="vys/unnamed (2).jpg"><img src="vys/unnamed (2).jpg" width="259" height="346"></a> <a href="vys/unnamed.jpg"><img src="vys/unnamed.jpg" width="259" height="346"></a></p>
+      <p><a href="vys/unnamed (1).jpg"><img src="vys/unnamed (1).jpg" loading="lazy" alt=""></a> <a href="vys/unnamed (2).jpg"><img src="vys/unnamed (2).jpg" loading="lazy" alt=""></a> <a href="vys/unnamed.jpg"><img src="vys/unnamed.jpg" loading="lazy" alt=""></a></p>
       <p dir="ltr">Родник находится на территории парка усадьбы Потоцких, у замкового вала.  Ранее над родником и купелью было укрытие, были перила, теперь же все благоустройство практически уничтожено. В роднике и купели куча гнилых листьев.  В купели вода застаивается из-за неправильного расположения: купель должна устанавливаться на родниковом ручье, а не на отдельном выходе воды, который к тому же очень слабый.</p>
       <p dir="ltr">Родник находится в бассейне р. Пульвы - правого притока Буга.</p>
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=23.35824251174927%2C52.35936587164427%2C23.380343914031986%2C52.37018873779312&amp;layer=mapnik&amp;marker=52.36477763613247%2C23.369293212890625" style="border: 1px solid black"></iframe>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=23.35824251174927%2C52.35936587164427%2C23.380343914031986%2C52.37018873779312&amp;layer=mapnik&amp;marker=52.36477763613247%2C23.369293212890625" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>52.3647821, 23.3693066</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </span></footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Татарский</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -55,9 +54,10 @@
       <p>Родник находится у дома №18 по ул. Пролетарской, ранее называвшейся Татарской, где располагалась татарская слобода и кладбище.</p>
       <p>Представляет собой лимнокрен. Находится в ужасном состоянии - плавает мусор, вода застаивается. Ранее из родника откачивалась вода, теперь же это невозможно - трубы сразу забиваются.</p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-      	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=25.996677875518802%2C53.327964021318245%2C26.02221250534058%2C53.33683125000521&amp;layer=mapnik&amp;marker=53.33239786607092%2C26.009445190429688" style="border: 1px solid black"></iframe>
+      	<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.996677875518802%2C53.327964021318245%2C26.02221250534058%2C53.33683125000521&amp;layer=mapnik&amp;marker=53.33239786607092%2C26.009445190429688" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
       <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.3324233, 26.0094319</p>
     </main>
-      <footer>Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна</footer>
+      <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

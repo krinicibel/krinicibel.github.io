@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тартаки</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,7 +50,7 @@
       </section>
       <p dir="ltr">04.11.2018</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Тартаки &gt; Кипяток</p>
-      <p><a href="tar/IMG_20190803_143741.jpg"><img src="tar/IMG_20190803_143741.jpg" width="259" height="346"></a> <a href="tar/IMG_20190803_143759.jpg"><img src="tar/IMG_20190803_143759.jpg"width="259" height="346"></a> <a href="tar/IMG_20190803_150056.jpg"><img src="tar/IMG_20190803_150056.jpg"width="259" height="346"></a></p>
+      <p><a href="tar/IMG_20190803_143741.jpg"><img src="tar/IMG_20190803_143741.jpg" loading="lazy" alt=""></a> <a href="tar/IMG_20190803_143759.jpg"><img src="tar/IMG_20190803_143759.jpg" loading="lazy" alt=""></a> <a href="tar/IMG_20190803_150056.jpg"><img src="tar/IMG_20190803_150056.jpg" loading="lazy" alt=""></a></p>
       <div>
         <div id="h.6d4f4b0d0a7ae5f3_8">
           <div>
@@ -64,11 +63,12 @@
         </div>
   </div>
       <h2 _locid="OverviewTitle"><span lang="ru"><span lang="ru">Анализ воды</span></span></h2>
-      <p _locid="OverviewTitle"><img src="tar/untitled.png" alt="" width="522" height="207"></p>
+      <p _locid="OverviewTitle"><img src="tar/untitled.png" alt="" loading="lazy"></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.659856796264652%2C52.98603489251988%2C25.7695484161377%2C53.02172473305758&amp;layer=mapnik&amp;marker=53.003883501064706%2C25.714702606201172" style="border: 1px solid black"></iframe>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.659856796264652%2C52.98603489251988%2C25.7695484161377%2C53.02172473305758&amp;layer=mapnik&amp;marker=53.003883501064706%2C25.714702606201172" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.00368, 25.71401</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>

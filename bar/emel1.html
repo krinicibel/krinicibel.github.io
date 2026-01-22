@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хатки-1</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,19 +50,17 @@
       </section>
       <p dir="ltr">27.08.2019      </p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Емельяновичи &gt; Емельяновичи-1</p>
-      <p><a href="jem/1tPthzpcs1z4ieymHRWNBuorkMCHBBKvG.png"><img src="jem/1tPthzpcs1z4ieymHRWNBuorkMCHBBKvG.png" alt="" width="524" height="868"/></a></p>
+      <p><a href="jem/1tPthzpcs1z4ieymHRWNBuorkMCHBBKvG.png"><img src="jem/1tPthzpcs1z4ieymHRWNBuorkMCHBBKvG.png" alt="" loading="lazy"></a></p>
       <p dir="ltr">Родник представляет собой кренполе.</p>
       <p dir="ltr">Родник находится недалеко от автобусной остановки, в центре деревни. С дороги (поворот на Емельяновичи) к роднику уложены ступеньки. Родник каптирован железобетонным кольцом. Родниковый ручей впадает в более мощный, с начала деревни. Мощный ручей впадает в реку Своротву в урочище Мельница (за зернохранилищем).</p>
       <h2 _locid="OverviewTitle"><span lang="ru">Анализ воды</span></h2>
 
       <p dir="ltr"><img src="jem/untitled.png" alt=""></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-      		  <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.7970142364502%2C53.34111322778834%2C25.85186004638672%2C53.35881476360457&amp;layer=mapnik&amp;marker=53.34996491450254%2C25.824437141418457" style="border: 1px solid black"></iframe>
+			<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.7970142364502%2C53.34111322778834%2C25.85186004638672%2C53.35881476360457&amp;layer=mapnik&amp;marker=53.34996491450254%2C25.824437141418457" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
       <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.35002, 25.82443</p>
     </main>
-    <footer>
-      <main> </main>
-      <footer>Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна</footer>
-  </footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

@@ -1,62 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Молчадка</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
-    <!--<nav>
-      <ul class="mmenuu">
-    <li><a href="../index.html">Галоўная старонка</a>
-    </li>
-       <li><a href="../index.html#b">Брэсцкая вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#bar>Баранавіцкі раён</a></li>
-            <li><a href=../index.html#ber>Бярозаўскі раён</a></li>
-            <li><a href=../index.html#iva>Івацэвіцкі раён</a></li>
-            <li><a href=../index.html#lah>Ляхавіцкі раён</a></li>
-            <li><a href=../index.html#pru>Пружанскі раён</a></li>
-
-        </ul>
-    </li>
-    <li><a href=../index.html#g>Гродзенская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#gro>Гродзенскі раён</a></li>
-            <li><a href=../index.html#zel>Зэльвенскі раён</a></li>
-            <li><a href=../index.html#nov>Навагрудскі раён</a></li>
-            <li><a href=../index.html#slo>Слонімскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../index.html#m>Мінская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#dze>Дзяржынскі раён</a></li>
-            <li><a href=../index.html#min>Мінскі раён</a></li>
-            <li><a href=../index.html#nes>Нясвіжскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../opv.html>Загрузіць OPV</a>
-    </li>
-    <li><a href=../map.html>Інтэрактыўная карта</a>
-    </li>
-</ul>
-    </nav> -->
+    <div data-include="/templates/header.html"></div>
     <main>
   <section>
         <h2>Молчадка</h2>
       </section>
       <p dir="ltr">15.08.2024</p>
       <p><a href="../index.html#g">Гродненская область</a> &gt; <a href="../index.html#dya">Дятловский район</a> &gt; д. Рыбаки &gt; Молчадка</p>
-      <p><a href="ryb/unnamed (1).jpg"><img src="ryb/unnamed (1).jpg" width="259" height="346"></a> <a href="ryb/unnamed (6).jpg"><img src="ryb/unnamed (6).jpg" width="259" height="346"></a> <a href="ryb/unnamed.jpg"><img src="ryb/unnamed.jpg" width="261" height="170"></a></p>
+      <p><a href="ryb/unnamed (1).jpg"><img src="ryb/unnamed (1).jpg" loading="lazy" alt=""></a> <a href="ryb/unnamed (6).jpg"><img src="ryb/unnamed (6).jpg" loading="lazy" alt=""></a> <a href="ryb/unnamed.jpg"><img src="ryb/unnamed.jpg" loading="lazy" alt=""></a></p>
       <p dir="ltr">Родник находится на правом берегу реки Молчадка, у правой обочины дороги от шоссе Новогрудок-Боцковичи-Дятлово до хутора Молчадка. Родниковая вода попадает в озерцо и теряется в зарослях. Вода изливается из вертикальной трубы. </p>
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.460300445556644%2C53.515817672234405%2C25.504503250122074%2C53.53688988516752&amp;layer=mapnik&amp;marker=53.52635508913944%2C25.482401847839355" style="border: 1px solid black"></iframe>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.460300445556644%2C53.515817672234405%2C25.504503250122074%2C53.53688988516752&amp;layer=mapnik&amp;marker=53.52635508913944%2C25.482401847839355" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.5263900, 25.4824016 </span></p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </span></footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кочерыжка</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,7 +50,7 @@
       </section>
       <p>04.11.2018</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Березовка &gt; Кочерыжка</p>
-      <p><a href="ber/1fdbQszQGf6kk3yqP82oPu4DYar6tZC3V.jpg"><img src="ber/1fdbQszQGf6kk3yqP82oPu4DYar6tZC3V.jpg" alt="" width="392" height="295"/></a> <a href="ber/1yTMH-itfJu0LyVpPI2aIzGKRjG1govRQ.jpg"><img src="ber/1yTMH-itfJu0LyVpPI2aIzGKRjG1govRQ.jpg" alt="" width="393" height="292"/></a></p>
+      <p><a href="ber/1fdbQszQGf6kk3yqP82oPu4DYar6tZC3V.jpg"><img src="ber/1fdbQszQGf6kk3yqP82oPu4DYar6tZC3V.jpg" alt="" loading="lazy"></a> <a href="ber/1yTMH-itfJu0LyVpPI2aIzGKRjG1govRQ.jpg"><img src="ber/1yTMH-itfJu0LyVpPI2aIzGKRjG1govRQ.jpg" alt="" loading="lazy"></a></p>
       <p _locid="OverviewTitle">Источник каптирован железобетонным кольцом. Вода течет через пробитое отверстие и попадает в ручей — левый приток реки Кочерыжка. Минерализация воды — 82 мг/л. Температура воды в ноябре — 10°C. Уровень воды в кольце — 20 см. Ширина ручья у истока — 29 см, у устья — 36 см.</p>
       <h2 _locid="OverviewTitle">Анализ воды<span lang="ru"></span></h2>
       <p _locid="OverviewTitle"> <span lang="ru">Анализ воды от 03.08.2019</span></p>
@@ -59,9 +58,10 @@
       <p> <span lang="ru">Анализ воды от <span lang="ru">21.07.2020</span></span></p>
       <p><img src="ber/Снимок2.PNG" alt=""/></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-      	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=25.770964622497562%2C53.01828147758558%2C25.793066024780273%2C53.029071283810794&amp;layer=mapnik&amp;marker=53.02367671804275%2C25.782015323638916" style="border: 1px solid black"></iframe>
+      <div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.770964622497562%2C53.01828147758558%2C25.793066024780273%2C53.029071283810794&amp;layer=mapnik&amp;marker=53.02367671804275%2C25.782015323638916" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
       <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.0237043, 25.7820354    </p>
     </main>
-      <footer>Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна</footer>
+      <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

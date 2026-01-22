@@ -1,64 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Королевский</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
-    <!--<nav>
-      <ul class="mmenuu">
-    <li><a href="../index.html">Галоўная старонка</a>
-    </li>
-       <li><a href="../index.html#b">Брэсцкая вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#bar>Баранавіцкі раён</a></li>
-            <li><a href=../index.html#ber>Бярозаўскі раён</a></li>
-            <li><a href=../index.html#iva>Івацэвіцкі раён</a></li>
-            <li><a href=../index.html#lah>Ляхавіцкі раён</a></li>
-            <li><a href=../index.html#pru>Пружанскі раён</a></li>
-
-        </ul>
-    </li>
-    <li><a href=../index.html#g>Гродзенская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#gro>Гродзенскі раён</a></li>
-            <li><a href=../index.html#zel>Зэльвенскі раён</a></li>
-            <li><a href=../index.html#nov>Навагрудскі раён</a></li>
-            <li><a href=../index.html#slo>Слонімскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../index.html#m>Мінская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#dze>Дзяржынскі раён</a></li>
-            <li><a href=../index.html#min>Мінскі раён</a></li>
-            <li><a href=../index.html#nes>Нясвіжскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../opv.html>Загрузіць OPV</a>
-    </li>
-    <li><a href=../map.html>Інтэрактыўная карта</a>
-    </li>
-</ul>
-    </nav> -->
+    <div data-include="/templates/header.html"></div>
     <main>
   <section>
         <h2>Королевский</h2>
       </section>
       <p dir="ltr">18.06.2023</p>
       <p><a href="../index.html#g">Гродненская область</a> &gt; <a href="../index.html#gro">Гродненский район</a> &gt; г. Гродно &gt; Королевский</p>
-      <p><a href="gro/unnamed.jpg"><img src="gro/unnamed.jpg" width="259" height="346"></a> <a href="gro/unnamed (1).jpg"><img src="gro/unnamed (1).jpg" width="259" height="346"></a> <a href="gro/unnamed (2).jpg"><img src="gro/unnamed (2).jpg"width="259" height="346"></a></p>
+      <p><a href="gro/unnamed.jpg"><img src="gro/unnamed.jpg" loading="lazy" alt=""></a> <a href="gro/unnamed (1).jpg"><img src="gro/unnamed (1).jpg" loading="lazy" alt=""></a> <a href="gro/unnamed (2).jpg"><img src="gro/unnamed (2).jpg" loading="lazy" alt=""></a></p>
       <p dir="ltr">Родник находится у пруда на р. Городничанке, слева от моста через него. Родник вытекает из-под холма, на котором раньше находился дворец Валицких. </p>
       <p dir="ltr">Раньше родник был каптирован, но теперь вода течет ниже каптажа. </p>
       <p dir="ltr">Качество воды плохое. Минерализация - 512 мг/л.</p>
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=23.819196224212646%2C53.67849739275556%2C23.841297626495365%2C53.689121373412796&amp;layer=mapnik&amp;marker=53.68380971810341%2C23.830246925354004" style="border: 1px solid black"></iframe><br/><small>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=23.819196224212646%2C53.67849739275556%2C23.841297626495365%2C53.689121373412796&amp;layer=mapnik&amp;marker=53.68380971810341%2C23.830246925354004" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div><br/><small>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.6838336, 23.8303163 </span></p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </span></footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

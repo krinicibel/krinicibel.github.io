@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Криницы Беларуси">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#87ceeb" />
+      <stop offset="1" stop-color="#0077be" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="var(--bg-card)" stroke="#d1e3f0" stroke-width="2" />
+  <path d="M60 20 C48 40 40 52 40 66 C40 86 56 100 60 104 C64 100 80 86 80 66 C80 52 72 40 60 20 Z" fill="url(#g)" />
+</svg>

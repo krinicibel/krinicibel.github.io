@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>У стадиона</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
@@ -11,9 +12,7 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -60,9 +59,9 @@
   <p dir="ltr">Родник каптирован ж/б кольцом, накрытым бетонной плитой. Вывод воды через трубу.</p>
   <p dir="ltr">По состоянию на ноябрь 2018 года пересох.</p>
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=25.303230285644535%2C52.996190098204394%2C25.391635894775394%2C53.03641351996148&amp;layer=mapnik&amp;marker=53.01628067865837%2C25.34743309020996" style="border: 1px solid black"></iframe>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.303230285644535%2C52.996190098204394%2C25.391635894775394%2C53.03641351996148&amp;layer=mapnik&amp;marker=53.01628067865837%2C25.34743309020996" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.0163241, 25.3475216 </span></p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </span></footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

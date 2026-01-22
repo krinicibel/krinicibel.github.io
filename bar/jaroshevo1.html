@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ярошево-1</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,7 +50,7 @@
       </section>
       <p dir="ltr">02.05.2018</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Кузевичи &gt; Ярошево-1</p>
-      <p><a href="jar/IMG_20210822_121254.jpg"><img src="jar/IMG_20210822_121254.jpg" width="259" height="346"></a> <a href="jar/IMG_20210822_121610_1.jpg"><img src="jar/IMG_20210822_121610_1.jpg" width="259" height="346"></a></p>
+      <p><a href="jar/IMG_20210822_121254.jpg"><img src="jar/IMG_20210822_121254.jpg" loading="lazy" alt=""></a> <a href="jar/IMG_20210822_121610_1.jpg"><img src="jar/IMG_20210822_121610_1.jpg" loading="lazy" alt=""></a></p>
       <p dir="ltr">Вода льется через углубление в кольце. Также на камне у кольца находится кружка. Около родника встречается довольно редкое явление в Барановичском районе - возле основного родника находится огромное множество маленьких ключей, т.е. берег реки водоточит. Родниковый ручей шириной около 34см впадает в р.Молчадку (официально - р. Голынка).</p>
       <p dir="ltr">Дебит родника - 10 л/с.</p>
       <p dir="ltr">Местные жители считают, что помогает при заболеваниях глаз</p>
@@ -60,12 +59,13 @@
       <p _locid="OverviewTitle">Анализ воды от 04.2019</p>
       <p _locid="OverviewTitle"><img src="jar/untitled.png" alt=""></p>
       <p _locid="OverviewTitle">Анализ воды от 06.2020</p>
-      <p _locid="OverviewTitle"><img src="jar/untitled1.png" alt="" width="593" height="332"></p>
-      <p _locid="OverviewTitle"><img src="jar/Screenshot_1.png"></p>
+      <p _locid="OverviewTitle"><img src="jar/untitled1.png" alt="" loading="lazy"></p>
+      <p _locid="OverviewTitle"><img src="jar/Screenshot_1.png" loading="lazy"></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.823246240615845%2C53.28861965585821%2C25.830101966857914%2C53.29083547325057&amp;layer=mapnik&amp;marker=53.28972757891976%2C25.826674103736877" style="border: 1px solid black"></iframe>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.823246240615845%2C53.28861965585821%2C25.830101966857914%2C53.29083547325057&amp;layer=mapnik&amp;marker=53.28972757891976%2C25.826674103736877" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.28944, 25.82641</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>

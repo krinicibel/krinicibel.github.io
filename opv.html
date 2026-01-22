@@ -1,157 +1,1042 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Загрузіць OPV</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
-  </head>
-  <body>
-    <header>
-      <h1>Крыніцы Беларусі</h1>
-    </header>
-   <nav>
-      <ul class="mmenuu">
-    <li><a href="index.html">Галоўная старонка</a>
-    </li>
-       <li><a href="index.html#b">Брэсцкая вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=index.html#bar>Баранавіцкі раён</a></li>
-            <li><a href=index.html#ber>Бярозаўскі раён</a></li>
-            <li><a href=index.html#iva>Івацэвіцкі раён</a></li>
-            <li><a href=index.html#lah>Ляхавіцкі раён</a></li>
-            <li><a href=index.html#pru>Пружанскі раён</a></li>
-
-        </ul>
-    </li>
-    <li><a href=index.html#g>Гродзенская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=index.html#gro>Гродзенскі раён</a></li>
-            <li><a href=index.html#zel>Зэльвенскі раён</a></li>
-            <li><a href=index.html#nov>Навагрудскі раён</a></li>
-            <li><a href=index.html#slo>Слонімскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=index.html#m>Мінская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=index.html#dze>Дзяржынскі раён</a></li>
-            <li><a href=index.html#min>Мінскі раён</a></li>
-            <li><a href=index.html#nes>Нясвіжскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=map.html>Інтэрактыўная карта</a>
-    </li>
-</ul>
-    </nav>
+<html lang="be">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузіць OPV — Вызначэнне паказнікаў вады</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+  <style>
+    /* ============================
+       OPV Page Specific Styles
+       ============================ */
+    
+    /* Hero Section */
+    .opv-hero {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 3rem 0;
+      margin: -2rem calc(-1 * var(--page-gutter)) 2rem;
+      padding-left: var(--page-gutter);
+      padding-right: var(--page-gutter);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .opv-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    .opv-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    
+    .opv-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.15);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .opv-hero__title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin: 0 0 1rem;
+      color: white;
+    }
+    
+    .opv-hero__desc {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin: 0 0 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .opv-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .btn-hero {
+      background: white;
+      color: var(--primary);
+      padding: 0.85rem 1.75rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .btn-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      color: var(--primary-dark);
+    }
+    
+    .btn-hero-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    
+    .btn-hero-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+      color: white;
+    }
+    
+    /* Platform Cards */
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .platform-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .platform-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .platform-card__header {
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .platform-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.75rem;
+    }
+    
+    .platform-card__icon--windows {
+      background: linear-gradient(135deg, #00a4ef 0%, #0078d4 100%);
+    }
+    
+    .platform-card__icon--win95 {
+      background: linear-gradient(135deg, #008080 0%, #000080 100%);
+    }
+    
+    .platform-card__icon--dos {
+      background: linear-gradient(135deg, #333 0%, #000 100%);
+    }
+    
+    .platform-card__icon--android {
+      background: linear-gradient(135deg, #3ddc84 0%, #00a956 100%);
+    }
+    
+    .platform-card__icon img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+    }
+    
+    .platform-card__info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .platform-card__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+      color: var(--text-primary);
+    }
+    
+    .platform-card__subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    
+    .platform-card__body {
+      padding: 1.5rem;
+      flex: 1;
+    }
+    
+    .platform-card__desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0 0 1rem;
+      line-height: 1.6;
+    }
+    
+    .platform-card__requirements {
+      background: var(--bg-hover);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .platform-card__requirements svg {
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    
+    .platform-card__footer {
+      padding: 1rem 1.5rem;
+      background: var(--bg-hover);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    .download-btn {
+      flex: 1;
+      min-width: 120px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .download-btn:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: translateY(-1px);
+    }
+    
+    .download-btn--secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    
+    .download-btn--secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Version History Section */
+    .version-history {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    
+    .version-history__header {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-hover);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .version-history__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .version-history__title svg {
+      color: var(--primary);
+    }
+    
+    .version-badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .version-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .version-table thead {
+      background: rgba(0, 119, 190, 0.05);
+    }
+    
+    .version-table th {
+      padding: 0.9rem 1.25rem;
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .version-table td {
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+    }
+    
+    .version-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .version-table tbody tr:hover {
+      background: var(--bg-hover);
+    }
+    
+    .version-table .version-number {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .version-table .version-latest {
+      color: var(--primary);
+    }
+    
+    .version-table .version-date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .version-table .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    
+    .version-table .download-link:hover {
+      background: rgba(0, 119, 190, 0.1);
+      color: var(--primary-dark);
+    }
+    
+    .version-table .no-download {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    /* Mobile Apps Section */
+    .mobile-apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    
+    .app-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .app-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    .app-card__icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #3ddc84 0%, #00a956 100%);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .app-card__icon svg {
+      color: white;
+    }
+    
+    .app-card__info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .app-card__name {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 0.25rem;
+    }
+    
+    .app-card__action {
+      font-size: 0.85rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    /* Section Styling */
+    .page-section {
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .section-header__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .section-header__icon--blue {
+      background: rgba(0, 119, 190, 0.1);
+      color: var(--primary);
+    }
+    
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .opv-hero {
+        padding: 2rem var(--page-gutter);
+        margin-top: -2rem;
+      }
+      
+      .opv-hero__actions {
+        flex-direction: column;
+      }
+      
+      .btn-hero {
+        justify-content: center;
+      }
+      
+      .platforms-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .version-table {
+        display: block;
+      }
+      
+      .version-table thead {
+        display: none;
+      }
+      
+      .version-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+      }
+      
+      .version-table tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        padding: 1rem;
+        background: var(--bg-hover);
+        border-radius: var(--radius-sm);
+        border: none !important;
+      }
+      
+      .version-table td {
+        border: none;
+        padding: 0;
+      }
+      
+      .version-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .platform-card__footer {
+        flex-direction: column;
+      }
+      
+      .download-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div data-include="/templates/header.html"></div>
+  
   <main>
+    <!-- Hero Section -->
+    <section class="opv-hero">
+      <div class="opv-hero__content">
+        <div class="opv-hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          Версія 4.5
+        </div>
+        <h1 class="opv-hero__title">OPV — Вызначэнне паказнікаў вады</h1>
+        <p class="opv-hero__desc">
+          Праграма для аналізу вады з дапамогаю рэактываў «НИЛПА». 
+          Дапамагае хутка вызначыць асноўныя паказчыкі якасці вады ў хатніх умовах.
+        </p>
+        <div class="opv-hero__actions">
+          <a href="https://drive.google.com/u/0/uc?id=1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf&export=download" class="btn-hero">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            Спампаваць для Windows
+          </a>
+          <a href="#all-versions" class="btn-hero btn-hero-outline">
+            Усе версіі
+          </a>
+        </div>
+      </div>
+    </section>
     
-        <h2>OPV - вызначэнне паказнікаў вады</a></h2>
+    <!-- Platform Cards -->
+    <section class="page-section">
+      <div class="section-header">
+        <div class="section-header__icon section-header__icon--blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <h2>Выберыце сваю платформу</h2>
+      </div>
+      
+      <div class="platforms-grid">
+        <!-- Windows Modern -->
+        <article class="platform-card">
+          <div class="platform-card__header">
+            <div class="platform-card__icon platform-card__icon--windows">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                <path d="M3 5.5L10.5 4.5V11.5H3V5.5ZM3 12.5H10.5V19.5L3 18.5V12.5ZM11.5 4.3L21 3V11.5H11.5V4.3ZM11.5 12.5H21V21L11.5 19.7V12.5Z"/>
+              </svg>
+            </div>
+            <div class="platform-card__info">
+              <h3 class="platform-card__title">OPV для Windows</h3>
+              <p class="platform-card__subtitle">Windows 2000 і навей</p>
+            </div>
+          </div>
+          <div class="platform-card__body">
+            <p class="platform-card__desc">
+              Асноўная версія праграмы з поўным наборам функцый для аналізу вады.
+            </p>
+            <div class="platform-card__requirements">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4M12 8h.01"/>
+              </svg>
+              <span>Патрабуецца .NET Framework 2. Для Windows 2000 — пакет SP4 і абнаўленне KB835732.</span>
+            </div>
+          </div>
+          <div class="platform-card__footer">
+            <a href="https://drive.google.com/u/0/uc?id=1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf&export=download" class="download-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Інсталятар
+            </a>
+            <a href="https://drive.google.com/file/d/1BFBU-87c79I9XU_rmUVUA5gGdWe3yDV5/view?usp=share_link" class="download-btn download-btn--secondary">
+              ZIP-архіў
+            </a>
+          </div>
+        </article>
+        
+        <!-- Windows 95 -->
+        <article class="platform-card">
+          <div class="platform-card__header">
+            <div class="platform-card__icon platform-card__icon--win95">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                <path d="M3 5.5L10.5 4.5V11.5H3V5.5ZM3 12.5H10.5V19.5L3 18.5V12.5ZM11.5 4.3L21 3V11.5H11.5V4.3ZM11.5 12.5H21V21L11.5 19.7V12.5Z"/>
+              </svg>
+            </div>
+            <div class="platform-card__info">
+              <h3 class="platform-card__title">OPV-95</h3>
+              <p class="platform-card__subtitle">Windows 95 і навей</p>
+            </div>
+          </div>
+          <div class="platform-card__body">
+            <p class="platform-card__desc">
+              Лёгкая версія для старых сістэм. Працуе без .NET Framework, таксама сумяшчальная з Linux праз Wine.
+            </p>
+            <div class="platform-card__requirements">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <path d="M22 4L12 14.01l-3-3"/>
+              </svg>
+              <span>Не патрабуе дадатковых кампанентаў</span>
+            </div>
+          </div>
+          <div class="platform-card__footer">
+            <a href="https://drive.google.com/u/0/uc?id=1xhejxKZo7LFjCtVN8PP9RkzN0W07b6RC&export=download" class="download-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Інсталятар
+            </a>
+            <a href="https://drive.google.com/file/d/1mMvVen3yvoOl-yWwOyVFt1mrDAHcog6C/view?usp=sharing" class="download-btn download-btn--secondary">
+              ZIP-архіў
+            </a>
+          </div>
+        </article>
+        
+        <!-- MS-DOS -->
+        <article class="platform-card">
+          <div class="platform-card__header">
+            <div class="platform-card__icon platform-card__icon--dos">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M6 8h.01M9 8h6"/>
+                <path d="M6 12h12M6 16h8"/>
+              </svg>
+            </div>
+            <div class="platform-card__info">
+              <h3 class="platform-card__title">DOS-OPV</h3>
+              <p class="platform-card__subtitle">MS-DOS / Windows 32-bit</p>
+            </div>
+          </div>
+          <div class="platform-card__body">
+            <p class="platform-card__desc">
+              Арыгінальная тэкставая версія праграмы. Працуе ў камандным радку і на самых старых сістэмах.
+            </p>
+            <div class="platform-card__requirements">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+              <span>Мінімальныя патрабаванні — любы ПК з DOS</span>
+            </div>
+          </div>
+          <div class="platform-card__footer">
+            <a href="https://drive.google.com/u/0/uc?id=1q9OAOytEvSIEGl7muSX5M1C7d373rSXB&export=download" class="download-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Спампаваць v1.0
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
     
-        <p>Праграма выкарыстоўваецца пры аналізе вады з дапамогаю рэактываў &quot;НИЛПА&quot;. </p>
+    <!-- Android Apps -->
+    <section class="page-section">
+      <div class="section-header">
+        <div class="section-header__icon section-header__icon--blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+            <path d="M12 18h.01"/>
+          </svg>
+        </div>
+        <h2>Мабільныя прыкладанні</h2>
+      </div>
+      
+      <div class="mobile-apps">
+        <a href="https://drive.google.com/u/0/uc?id=1vvM2NyoeTnPs6MqKMB182wOeDbegqRX8&export=download" class="app-card">
+          <div class="app-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="app-card__info">
+            <h3 class="app-card__name">Дэбітамер</h3>
+            <span class="app-card__action">
+              Спампаваць APK
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        
+        <a href="https://drive.google.com/u/1/uc?id=1tjSwbkqcEwioFmqBNWwmnb2pWvlbqSRl&export=download" class="app-card">
+          <div class="app-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 7h6M9 11h6M9 15h4"/>
+              <rect x="4" y="3" width="16" height="18" rx="2"/>
+            </svg>
+          </div>
+          <div class="app-card__info">
+            <h3 class="app-card__name">Падлік кальцыя і магнію</h3>
+            <span class="app-card__action">
+              Спампаваць APK
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
     
-      <h2><img src="icons8-логотип-windows-xp-48.png" alt=""/> Версіі праграмы для Windows 2000 і вышэй (OPV)</h2>
-      <p>Патрабуецца .NET Framework 2. Для ўсталявання на Windows 2000 патрэбны пакет абнаўленняў SP4 і абнаўленне KB835732.</p>
-    <h3><a href="https://drive.google.com/file/d/1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf/view?usp=share_link">Апошняя версія - 4.5</a><a href="https://drive.google.com/u/0/uc?id=1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf&export=download"
-																																	 target="_blank"><img src="download.png" alt="" height="8" align="right"></a></h3>
-    <h3><a href="https://drive.google.com/u/0/uc?id=1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf&export=download"
-			 target="_blank"></a></h3>
-    <table width="50" border="1">
-      <tbody>
-        <tr>
-          <td><strong>zip-архив</strong></td>
-          <td><strong>Инсталлятор</strong></td>
-          <td><strong>Дата выпуска версии</strong></td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1yTm-760lLtPJIINdF7ZhzL7TPqhWhD7L/view?usp=sharing">0.1</a></td>
-          <td>-</td>
-          <td>10.07.2020</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1blVIGsJAAi7bYEW8UNctLkDDgOR6Zsuu/view?usp=sharing">0.2</a></td>
-          <td>-</td>
-          <td>26.07.2020</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1Wjx3YGQNleuL7mVpIDPSSwJr4MN01DJL/view?usp=sharing">2.1</a></td>
-          <td><a href="https://drive.google.com/file/d/1hDCvrIg4OXOhDnPL5UGSW0RL1XjdgQz1/view?usp=sharing">2.1</a></td>
-          <td>01.05.2021</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1uNqPDLahgKzmG4pj1Ze6uwQdToDUJADo/view?usp=sharing">2.2</a></td>
-          <td><a href="https://drive.google.com/file/d/1YvwUqpktTfzRdz8mkJpCswVPNsaQm8PU/view?usp=sharing">2.2</a></td>
-          <td>21.06.2021</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1dmTj9-DDVrM-CCotphxuRrXLplh3wze-/view?usp=sharing">2.3</a></td>
-          <td><a href="https://drive.google.com/file/d/1dxmVfBaMXXePWWrvvEgk5OiAMHxuIVqU/view?usp=sharing">2.3</a></td>
-          <td>07.08.2021</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1-DS3eopppmcyiLLukVzTHdOG9aINK72r/view?usp=sharing">2.4</a></td>
-          <td><a href="https://drive.google.com/file/d/1IGSUAVihwoO9XBWy7c8Hm9_x0CN_ejvA/view?usp=sharing">2.4</a></td>
-          <td>04.09.2021</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/16oJiTTNCJ93iwZsWTrJHmTb9avIj-oxh/view?usp=sharing">3</a></td>
-          <td><a href="https://drive.google.com/file/d/1TCqXEF55fxvR7jgp6LEkAqNr0oPqgNJK/view?usp=sharing">3</a></td>
-          <td>19.09.2021</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1DMSb6_Z5FE90TXeDBplTEKziYenEShEw/view?usp=sharing">3.1</a></td>
-          <td><a href="https://drive.google.com/file/d/1fw87DRQIqSPBggVPGc3VhENBSzet-T7m/view?usp=sharing">3.1</a></td>
-          <td>22.10.2021</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/17GVNuAjuXlgBBnlTy5U2r0r77SGirApk/view?usp=sharing">4</a></td>
-          <td><a href="https://drive.google.com/file/d/1JZMA8Dx7IE1dEYLqyaJrH930cG95ymXU/view?usp=sharing">4</a></td>
-          <td>04.02.2022</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1yPekKcFwTqZBQlo3grWW03HCasYAyyRZ/view?usp=sharing">4.1</a></td>
-          <td><a href="https://drive.google.com/file/d/1_UJ3C4sv2dEVRBOdAsZg_txC_yqeKzVv/view?usp=sharing">4.1</a></td>
-          <td>02.04.2022</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1pI_7Fpb86bOjb8Ic6W5aVJBeZM9yjo8S/view?usp=sharing">4.2</a></td>
-          <td><a href="https://drive.google.com/file/d/1J5Alfw-we0ouuftSYOK6H_YDhweWv-o8/view?usp=sharing">4.2</a></td>
-          <td>04.05.2022</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1A493o0qRAaCmOoldu__7dsg7CPOcohhV/view?usp=sharing">4.3</a></td>
-          <td><a href="https://drive.google.com/file/d/1DgZc2ZHCivuz3EvIwmQgjE25D4f26HV4/view?usp=sharing">4.3</a></td>
-          <td>01.07.2022</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1iGKjq3L1330UXKd2lGLyWeLV0k2l6b4T/view?usp=sharing">4.4</a></td>
-          <td><a href="https://drive.google.com/file/d/1xa0ECaEjOhTBFxkcNgpW_Q4cNG5P-3u2/view?usp=sharing">4.4</a></td>
-          <td>23.08.2022</td>
-        </tr>
-        <tr>
-          <td><a href="https://drive.google.com/file/d/1BFBU-87c79I9XU_rmUVUA5gGdWe3yDV5/view?usp=share_link">4.5</a></td>
-          <td><a href="https://drive.google.com/file/d/1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf/view?usp=share_link">4.5</a></td>
-          <td>25.11.2022</td>
-        </tr>
-      </tbody>
-      </table>
-    <h2><img src="icons8-windows-95-48.png" alt=""/> Версіі праграмы для Windows 9x і вышэй (OPV-95)</h2>
-    <p>Працуе на ўсіх сістэмах Windows, пачынаючы з Windows 95. Можа выкарыстоўвацца ў тых выпадках, калі ўзніклі праблемы з .NET Framework. Можа працаваць на Linux праз Wine.</p>
-    <p><a href="https://drive.google.com/file/d/1mMvVen3yvoOl-yWwOyVFt1mrDAHcog6C/view?usp=sharing"
-																																	 target="_blank">у архіве<img src="download.png" alt="" height="8" align="right"></a></p>
-    <p><a href="https://drive.google.com/u/0/uc?id=1xhejxKZo7LFjCtVN8PP9RkzN0W07b6RC&export=download"
-																																	 target="_blank">інсталятар<img src="download.png" alt="" height="8" align="right"></a></p>
-    <h2><img src="img.png" alt="" width="44" height="43"/> Версіі праграмы для MS-DOS (DOS-OPV)</h2>
-    <p>Самая першая тэкставая версія. Можа працаваць і ў 32-бітнай Windows.</p>
-    <p><a href="https://drive.google.com/u/0/uc?id=1q9OAOytEvSIEGl7muSX5M1C7d373rSXB&export=download"
-																																	 target="_blank">1.0<img src="download.png" alt="" height="8" align="right"></a></p>
-    <h2><img src="image.png" alt="" width="46" height="46"/> Версіі праграмы для Android</h2>
-    <p>Два мабільных прыкладання - &quot;Дэбітамер&quot; і &quot;Падлік кальцыя і магнія&quot;</p>
-    <p><a href="https://drive.google.com/u/0/uc?id=1vvM2NyoeTnPs6MqKMB182wOeDbegqRX8&export=download"
-																																	 target="_blank">Дэбітамер<img src="download.png" alt="" height="8" align="right"></a></p>
-    <p><a href="https://drive.google.com/u/1/uc?id=1tjSwbkqcEwioFmqBNWwmnb2pWvlbqSRl&export=download"
-																																	 target="_blank">Падлік кальцыя і магнія<img src="download.png" alt="" height="8" align="right"></a></p>
-    <section> </section>
-    </main>
-    <footer> Крыніцы Беларусі, 2017-2023. Пры выкарыстанні інфармацыі сайта спасылка абавязкова </footer>
-  </body>
+    <!-- Version History -->
+    <section id="all-versions" class="page-section">
+      <div class="version-history">
+        <div class="version-history__header">
+          <h2 class="version-history__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Гісторыя версій OPV для Windows
+          </h2>
+          <span class="version-badge">Актуальная: 4.5</span>
+        </div>
+        
+        <table class="version-table">
+          <thead>
+            <tr>
+              <th>Версія</th>
+              <th>ZIP-архіў</th>
+              <th>Інсталятар</th>
+              <th>Дата выпуску</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Версія"><span class="version-number version-latest">4.5</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1BFBU-87c79I9XU_rmUVUA5gGdWe3yDV5/view?usp=share_link" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf/view?usp=share_link" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">25.11.2022</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">4.4</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1iGKjq3L1330UXKd2lGLyWeLV0k2l6b4T/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1xa0ECaEjOhTBFxkcNgpW_Q4cNG5P-3u2/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">23.08.2022</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">4.3</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1A493o0qRAaCmOoldu__7dsg7CPOcohhV/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1DgZc2ZHCivuz3EvIwmQgjE25D4f26HV4/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">01.07.2022</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">4.2</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1pI_7Fpb86bOjb8Ic6W5aVJBeZM9yjo8S/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1J5Alfw-we0ouuftSYOK6H_YDhweWv-o8/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">04.05.2022</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">4.1</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1yPekKcFwTqZBQlo3grWW03HCasYAyyRZ/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1_UJ3C4sv2dEVRBOdAsZg_txC_yqeKzVv/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">02.04.2022</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">4</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/17GVNuAjuXlgBBnlTy5U2r0r77SGirApk/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1JZMA8Dx7IE1dEYLqyaJrH930cG95ymXU/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">04.02.2022</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">3.1</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1DMSb6_Z5FE90TXeDBplTEKziYenEShEw/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1fw87DRQIqSPBggVPGc3VhENBSzet-T7m/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">22.10.2021</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">3</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/16oJiTTNCJ93iwZsWTrJHmTb9avIj-oxh/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1TCqXEF55fxvR7jgp6LEkAqNr0oPqgNJK/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">19.09.2021</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">2.4</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1-DS3eopppmcyiLLukVzTHdOG9aINK72r/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1IGSUAVihwoO9XBWy7c8Hm9_x0CN_ejvA/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">04.09.2021</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">2.3</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1dmTj9-DDVrM-CCotphxuRrXLplh3wze-/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1dxmVfBaMXXePWWrvvEgk5OiAMHxuIVqU/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">07.08.2021</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">2.2</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1uNqPDLahgKzmG4pj1Ze6uwQdToDUJADo/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1YvwUqpktTfzRdz8mkJpCswVPNsaQm8PU/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">21.06.2021</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">2.1</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1Wjx3YGQNleuL7mVpIDPSSwJr4MN01DJL/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар">
+                <a href="https://drive.google.com/file/d/1hDCvrIg4OXOhDnPL5UGSW0RL1XjdgQz1/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Дата"><span class="version-date">01.05.2021</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">0.2</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1blVIGsJAAi7bYEW8UNctLkDDgOR6Zsuu/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар"><span class="no-download">—</span></td>
+              <td data-label="Дата"><span class="version-date">26.07.2020</span></td>
+            </tr>
+            <tr>
+              <td data-label="Версія"><span class="version-number">0.1</span></td>
+              <td data-label="ZIP-архіў">
+                <a href="https://drive.google.com/file/d/1yTm-760lLtPJIINdF7ZhzL7TPqhWhD7L/view?usp=sharing" class="download-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Спампаваць
+                </a>
+              </td>
+              <td data-label="Інсталятар"><span class="no-download">—</span></td>
+              <td data-label="Дата"><span class="version-date">10.07.2020</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  
+  <div data-include="/templates/footer.html"></div>
+  <script src="/js/include.js" defer></script>
+</body>
 </html>

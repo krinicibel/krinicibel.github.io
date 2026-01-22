@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рудаши</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -58,9 +57,10 @@
       <h2 _locid="OverviewTitle"><span lang="ru"><span lang="ru">Анализ воды</span></span></h2>
       <p _locid="OverviewTitle"><img src="rud/unnamed (4).png"></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.14876985549927%2C53.36339626842834%2C26.170871257781986%2C53.37409956987572&amp;layer=mapnik&amp;marker=53.36874825530335%2C26.159820556640625" style="border: 1px solid black"></iframe><br/><small>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=26.14876985549927%2C53.36339626842834%2C26.170871257781986%2C53.37409956987572&amp;layer=mapnik&amp;marker=53.36874825530335%2C26.159820556640625" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div><br/><small>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.36866, 26.1598</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>

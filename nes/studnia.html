@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Студня ундины</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
@@ -11,57 +12,20 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
-    <!--<nav>
-      <ul class="mmenuu">
-    <li><a href="../index.html">Галоўная старонка</a>
-    </li>
-       <li><a href="../index.html#b">Брэсцкая вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#bar>Баранавіцкі раён</a></li>
-            <li><a href=../index.html#ber>Бярозаўскі раён</a></li>
-            <li><a href=../index.html#iva>Івацэвіцкі раён</a></li>
-            <li><a href=../index.html#lah>Ляхавіцкі раён</a></li>
-            <li><a href=../index.html#pru>Пружанскі раён</a></li>
-
-        </ul>
-    </li>
-    <li><a href=../index.html#g>Гродзенская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#gro>Гродзенскі раён</a></li>
-            <li><a href=../index.html#zel>Зэльвенскі раён</a></li>
-            <li><a href=../index.html#nov>Навагрудскі раён</a></li>
-            <li><a href=../index.html#slo>Слонімскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../index.html#m>Мінская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#dze>Дзяржынскі раён</a></li>
-            <li><a href=../index.html#min>Мінскі раён</a></li>
-            <li><a href=../index.html#nes>Нясвіжскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../opv.html>Загрузіць OPV</a>
-    </li>
-    <li><a href=../map.html>Інтэрактыўная карта</a>
-    </li>
-</ul>
-    </nav> -->
+    <div data-include="/templates/header.html"></div>
     <main>
   <section>
         <h2>Студня ундины</h2>
       </section>
       <p dir="ltr">21.10.2018</p>
       <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#nes">Несвижский район</a> &gt; г. Несвиж &gt; Студня ундины</p>
-  <p><a href="nes/DSCN4074.jfif"><img src="nes/DSCN4074.jfif" width="399" height="305"></a> <a href="nes/DSCN4079.jfif"><img src="nes/DSCN4079.jfif" width="396" height="299"></a></p>
+  <p><a href="nes/DSCN4074.jfif"><img src="nes/DSCN4074.jfif" loading="lazy" alt=""></a> <a href="nes/DSCN4079.jfif"><img src="nes/DSCN4079.jfif" loading="lazy" alt=""></a></p>
   <p dir="ltr">Родник оснащен каменными плитами. Вода должна была попадать в ручей возле пруда со статуей русалки. Но сейчас в роднике воды нет, родник пересох.</p>
   <p dir="ltr">Также по словам местных жителей, второй родник находится на другом берегу, в Марысином парке, у статуи Марыси.</p>
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=26.679267883300785%2C53.220291561776136%2C26.706690788269047%2C53.22916830996158&amp;layer=mapnik&amp;marker=53.22473016586944%2C26.692979335784912" style="border: 1px solid black"></iframe>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=26.679267883300785%2C53.220291561776136%2C26.706690788269047%2C53.22916830996158&amp;layer=mapnik&amp;marker=53.22473016586944%2C26.692979335784912" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.22454, 26.6926</span></p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </span></footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

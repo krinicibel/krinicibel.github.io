@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ясенец-1</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,7 +50,7 @@
       </section>
       <p dir="ltr">08.09.2019</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Ясенец &gt; Ясенец-1</p>
-      <p><a href="jas/unnamed.jpg"><img src="jas/unnamed.jpg" width="259" height="346"></a></p>
+      <p><a href="jas/unnamed.jpg"><img src="jas/unnamed.jpg" loading="lazy" alt=""></a></p>
       <div>
         <div id="h.6d4f4b0d0a7ae5f3_8">
           <div>
@@ -62,9 +61,10 @@
         </div>
   </div>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.042919158935547%2C53.3513134149807%2C26.04844450950623%2C53.35399025129144&amp;layer=mapnik&amp;marker=53.352651854149066%2C26.045681834220886" style="border: 1px solid black"></iframe><br/><small>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=26.042919158935547%2C53.3513134149807%2C26.04844450950623%2C53.35399025129144&amp;layer=mapnik&amp;marker=53.352651854149066%2C26.045681834220886" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div><br/><small>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.35265, 26.04605</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>

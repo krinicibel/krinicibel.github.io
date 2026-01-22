@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Россошь</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,7 +50,7 @@
       </section>
       <p dir="ltr">19.09.2020</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Щербовичи &gt; Россошь</p>
-      <p><img src="srb/IMG_20200919_150551.jpg" width="270" height="346"> <img src="srb/IMG_20200919_151417.jpg" width="270" height="346"></p>
+      <p><img src="srb/IMG_20200919_150551.jpg" loading="lazy" alt=""> <img src="srb/IMG_20200919_151417.jpg" loading="lazy" alt=""></p>
       <div>
         <div id="h.6d4f4b0d0a7ae5f3_8">
           <div>
@@ -65,8 +64,9 @@
       <h2 _locid="OverviewTitle"><span lang="ru"><span lang="ru">Анализ воды</span></span></h2>
       <p _locid="OverviewTitle"><img src="srb/Снимок.PNG"></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=26.223635673522953%2C53.31986950767325%2C26.278481483459473%2C53.337579861760105&amp;layer=mapnik&amp;marker=53.328725603726895%2C26.25105857849121" style="border: 1px solid black"></iframe>  <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.32884, 26.25101</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=26.223635673522953%2C53.31986950767325%2C26.278481483459473%2C53.337579861760105&amp;layer=mapnik&amp;marker=53.328725603726895%2C26.25105857849121" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>  <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.32884, 26.25101</p>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Трацевичи</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -65,8 +64,9 @@
       <h2 _locid="OverviewTitle"><span lang="ru"><span lang="ru">Анализ воды</span></span></h2>
       <p _locid="OverviewTitle"><img src="tra/unnamed (1).png"></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=26.126153469085693%2C53.35108927034185%2C26.14825487136841%2C53.36179566329413&amp;layer=mapnik&amp;marker=53.3564428030127%2C26.13720417022705" style="border: 1px solid black"></iframe><br/><small><p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.35648, 26.13716</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=26.126153469085693%2C53.35108927034185%2C26.14825487136841%2C53.36179566329413&amp;layer=mapnik&amp;marker=53.3564428030127%2C26.13720417022705" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div><br/><small><p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.35648, 26.13716</p>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>

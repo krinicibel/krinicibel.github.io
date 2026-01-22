@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хатки-1</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -56,12 +55,10 @@
       <p dir="ltr">Местные считают родник целебным.</p>
       <p dir="ltr">Родниковый ручей вытекает из озерца и попадает в р. Детковку (так называется р. Лохозва в верхнем течении, до впадения в нее р. Жеребиловки).      </p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-      		  <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=25.647754669189457%2C53.08046646843801%2C25.736160278320316%2C53.123547280317965&amp;layer=mapnik&amp;marker=53.10201226762518%2C25.691957473754883" style="border: 1px solid black"></iframe>
+			  <div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.647754669189457%2C53.08046646843801%2C25.736160278320316%2C53.123547280317965&amp;layer=mapnik&amp;marker=53.10201226762518%2C25.691957473754883" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>
       <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.1021012, 25.6919259 </p>
     </main>
-    <footer>
-      <main> </main>
-      <footer>Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна</footer>
-    </footer>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </body>
 </html>

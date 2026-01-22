@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Парковый</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,145 +50,144 @@
       </section>
       <p dir="ltr">26.03.2022</p>
   <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#pru">Пружанский район</a> &gt; г. Пружаны &gt; Парковый</p>
-      <p><a href="pru/IMG_20220326_124226.jpg"><img src="pru/IMG_20220326_124004.jpg" width="259" height="346"> <img src="pru/IMG_20220326_124226.jpg" width="259" height="346"></a></p>
+      <p><a href="pru/IMG_20220326_124226.jpg"><img src="pru/IMG_20220326_124004.jpg" loading="lazy" alt=""> <img src="pru/IMG_20220326_124226.jpg" loading="lazy" alt=""></a></p>
       <p dir="ltr">Родник находится в парке усадьбы Швыковских, на берегу канала Вец. Родник представляет собой родниковое озерцо - лимнокрен с выводом воды через трубу, вмонтированную в склон. К роднику уложены ступеньки и установлены перила.</p>
       <p dir="ltr">В воде канала находится железобетонное кольцо. Скорее всего, родник раньше находился там, т.к. часть бетонных ступенек затоплена, либо это было собирающее кольцо.</p>
   <p dir="ltr">Сразу после набора вода отдавала легким запахом сероводорода, но через день запах полностью исчез. По химическому анализу воды соответствует санитарным нормам. </p>
   <h2 _locid="OverviewTitle"><span lang="ru">Анализ воды</span></h2>
-  <table cellspacing="0" cellpadding="5" 
-       style="border:1px solid black; border-collapse:collapse; width:100%;">
-  <col width="64" span="2">
-  <col width="147">
-  <col width="94">
-  <col width="129">
-  <col width="136">
+  <table class="analysis-table" cellspacing="0" cellpadding="5">
+  <col span="2">
+  <col>
+  <col>
+  <col>
+  <col>
 
   <tr>
-    <td colspan="4" style="border:1px solid black;">Назва крыніцы</td>
-    <td colspan="2" style="border:1px solid black;">Паркавая</td>
+    <td colspan="4" class="analysis-heading">Назва крыніцы</td>
+    <td colspan="2">Паркавая</td>
   </tr>
   <tr>
-    <td colspan="4" style="border:1px solid black;">Дата даследвання крыніцы</td>
-    <td colspan="2" style="border:1px solid black;">26.03.2022</td>
+    <td colspan="4" class="analysis-heading">Дата даследвання крыніцы</td>
+    <td colspan="2">26.03.2022</td>
   </tr>
   <tr>
-    <td colspan="4" style="border:1px solid black;">Дата правядзення аналізу</td>
-    <td colspan="2" style="border:1px solid black;">27.03.2022</td>
-  </tr>
-
-  <tr>
-    <td colspan="6" style="border:1px solid black; font-weight:bold;">ГІДРАФІЗІЧНЫЯ ПАКАЗНІКІ ВАДЫ</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Паказнікі</td>
-    <td colspan="3" style="border:1px solid black;">Значэнне</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Тэмпература, &deg;C</td>
-    <td colspan="3" style="border:1px solid black;">8</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Расход вады (дэбіт), л/мин</td>
-    <td colspan="3" style="border:1px solid black;">?</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Удз. электраправоднасць, &micro;С/см</td>
-    <td colspan="3" style="border:1px solid black;">770</td>
+    <td colspan="4" class="analysis-heading">Дата правядзення аналізу</td>
+    <td colspan="2">27.03.2022</td>
   </tr>
 
   <tr>
-    <td colspan="6" style="border:1px solid black; font-weight:bold;">ГІДРАХІМІЧНЫЯ ПАКАЗНІКІ ВАДЫ</td>
+    <td colspan="6" class="analysis-heading">ГІДРАФІЗІЧНЫЯ ПАКАЗНІКІ ВАДЫ</td>
   </tr>
   <tr>
-    <td colspan="3" style="border:1px solid black;">Паказнікі</td>
-    <td colspan="2" style="border:1px solid black;">Значэнне</td>
-    <td style="border:1px solid black;">ПДК</td>
+    <td colspan="3">Паказнікі</td>
+    <td colspan="3">Значэнне</td>
   </tr>
   <tr>
-    <td colspan="3" style="border:1px solid black;">Мінералізацыя, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">372</td>
-    <td style="border:1px solid black;">1000</td>
+    <td colspan="3">Тэмпература, &deg;C</td>
+    <td colspan="3">8</td>
   </tr>
   <tr>
-    <td colspan="3" style="border:1px solid black;">Жорсткасць, ммоль/л</td>
-    <td colspan="2" style="border:1px solid black;">2,1</td>
-    <td style="border:1px solid black;">7</td>
+    <td colspan="3">Расход вады (дэбіт), л/мин</td>
+    <td colspan="3">?</td>
   </tr>
   <tr>
-    <td colspan="3" style="border:1px solid black;">Вадародны паказнік (рН)</td>
-    <td colspan="2" style="border:1px solid black;">8</td>
-    <td style="border:1px solid black;">6…9</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Нітраты, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">2</td>
-    <td style="border:1px solid black;">45</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Нітрыты, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">0</td>
-    <td style="border:1px solid black;">3</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Фасфаты, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">0,5</td>
-    <td style="border:1px solid black;">3,5</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Жалеза, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">0,25</td>
-    <td style="border:1px solid black;">0,3</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Кальцый, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">80</td>
-    <td style="border:1px solid black;">100</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Магній, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">49</td>
-    <td style="border:1px solid black;">85</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Медзь, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">0</td>
-    <td style="border:1px solid black;">1</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Аміяк, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">0</td>
-    <td style="border:1px solid black;">0,18</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Амоній, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">0</td>
-    <td style="border:1px solid black;">2</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Раствораны кісень, мг/л</td>
-    <td colspan="2" style="border:1px solid black;">11,7</td>
-    <td style="border:1px solid black;">≥6</td>
-  </tr>
-  <tr>
-    <td colspan="3" style="border:1px solid black;">Індэкс забруджвання вады (ІЗВ)</td>
-    <td colspan="2" style="border:1px solid black;">0,2</td>
-    <td style="border:1px solid black;">0,3</td>
+    <td colspan="3">Удз. электраправоднасць, &micro;С/см</td>
+    <td colspan="3">770</td>
   </tr>
 
   <tr>
-    <td colspan="2" style="border:1px solid black;">Аналіз правёў:</td>
-    <td style="border:1px solid black;"></td>
-    <td colspan="3" style="border:1px solid black;">Гіль А. Г.</td>
+    <td colspan="6" class="analysis-heading">ГІДРАХІМІЧНЫЯ ПАКАЗНІКІ ВАДЫ</td>
   </tr>
   <tr>
-    <td colspan="2" style="border:1px solid black;">Вынік аналізу:</td>
-    <td colspan="4" style="border:1px solid black;">Вада адпавядае санітарным нормам СанПіН 10-124 РБ 99</td>
+    <td colspan="3">Паказнікі</td>
+    <td colspan="2">Значэнне</td>
+    <td>ПДК</td>
+  </tr>
+  <tr>
+    <td colspan="3">Мінералізацыя, мг/л</td>
+    <td colspan="2">372</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td colspan="3">Жорсткасць, ммоль/л</td>
+    <td colspan="2">2,1</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td colspan="3">Вадародны паказнік (рН)</td>
+    <td colspan="2">8</td>
+    <td>6…9</td>
+  </tr>
+  <tr>
+    <td colspan="3">Нітраты, мг/л</td>
+    <td colspan="2">2</td>
+    <td>45</td>
+  </tr>
+  <tr>
+    <td colspan="3">Нітрыты, мг/л</td>
+    <td colspan="2">0</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td colspan="3">Фасфаты, мг/л</td>
+    <td colspan="2">0,5</td>
+    <td>3,5</td>
+  </tr>
+  <tr>
+    <td colspan="3">Жалеза, мг/л</td>
+    <td colspan="2">0,25</td>
+    <td>0,3</td>
+  </tr>
+  <tr>
+    <td colspan="3">Кальцый, мг/л</td>
+    <td colspan="2">80</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td colspan="3">Магній, мг/л</td>
+    <td colspan="2">49</td>
+    <td>85</td>
+  </tr>
+  <tr>
+    <td colspan="3">Медзь, мг/л</td>
+    <td colspan="2">0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td colspan="3">Аміяк, мг/л</td>
+    <td colspan="2">0</td>
+    <td>0,18</td>
+  </tr>
+  <tr>
+    <td colspan="3">Амоній, мг/л</td>
+    <td colspan="2">0</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td colspan="3">Раствораны кісень, мг/л</td>
+    <td colspan="2">11,7</td>
+    <td>≥6</td>
+  </tr>
+  <tr>
+    <td colspan="3">Індэкс забруджвання вады (ІЗВ)</td>
+    <td colspan="2">0,2</td>
+    <td>0,3</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Аналіз правёў:</td>
+    <td></td>
+    <td colspan="3">Гіль А. Г.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Вынік аналізу:</td>
+    <td colspan="4">Вада адпавядае санітарным нормам СанПіН 10-124 РБ 99</td>
   </tr>
 </table>
 
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=24.431576728820804%2C52.55224556690696%2C24.47577953338623%2C52.572568201460726&amp;layer=mapnik&amp;marker=52.562408061103106%2C24.453678131103516" style="border: 1px solid black"></iframe>  <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>52.56249, 24.45352</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </span></footer>
+<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=24.431576728820804%2C52.55224556690696%2C24.47577953338623%2C52.572568201460726&amp;layer=mapnik&amp;marker=52.562408061103106%2C24.453678131103516" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div>  <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>52.56249, 24.45352</p>
+    <div data-include="/templates/footer.html"></div>
+  <script src="/js/include.js" defer></script>
   </body>
 </html>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дубовка</title>
     <link href="../styles.css" rel="stylesheet" type="text/css">
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
+    <div data-include="/templates/header.html"></div>
     <!--<nav>
       <ul class="mmenuu">
     <li><a href="../index.html">Галоўная старонка</a>
@@ -51,7 +50,7 @@
       </section>
       <p dir="ltr">03.07.2020</p>
       <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Крутовцы &gt; Дубовка</p>
-      <p><a href="kru/1ggd6tUmdLhqHxPP_eSEtGD82MHXCvFlO.jpg"><img src="kru/1ggd6tUmdLhqHxPP_eSEtGD82MHXCvFlO.jpg" width="259" height="346"></a> <a href="kru/IMG_20210724_124027.jpg"><img src="kru/IMG_20210724_124027.jpg" width="259" height="346"></a></p>
+      <p><a href="kru/1ggd6tUmdLhqHxPP_eSEtGD82MHXCvFlO.jpg"><img src="kru/1ggd6tUmdLhqHxPP_eSEtGD82MHXCvFlO.jpg" loading="lazy" alt=""></a> <a href="kru/IMG_20210724_124027.jpg"><img src="kru/IMG_20210724_124027.jpg" loading="lazy" alt=""></a></p>
       <div>
         <div id="h.6d4f4b0d0a7ae5f3_8">
           <div>
@@ -63,9 +62,10 @@
         </div>
   </div>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
-      	<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.818085670471195%2C53.276003445210215%2C25.87293148040772%2C53.29373200040382&amp;layer=mapnik&amp;marker=53.28486864223712%2C25.845508575439453" style="border: 1px solid black"></iframe><br/><small>
+		<div class="map-responsive"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=25.818085670471195%2C53.276003445210215%2C25.87293148040772%2C53.29373200040382&amp;layer=mapnik&amp;marker=53.28486864223712%2C25.845508575439453" loading="lazy" title="Карта родника" aria-label="Интерактивная карта"></iframe></div><br/><small>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.2848, 25.8457</p>
-    <footer><span class="thumb">Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
+    <div data-include="/templates/footer.html"></div>
+    <script src="/js/include.js" defer></script>
   </span></footer>
   </body>
 </html>
