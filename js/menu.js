@@ -78,6 +78,7 @@ export function initMenu() {
           const sul = document.createElement('ul');
           sul.className = 'mobile-submenu';
           sul.id = sid;
+          sul.setAttribute('aria-hidden', 'true');
           item.items.forEach((sub) => {
             const sli = document.createElement('li');
             const sa = document.createElement('a');
