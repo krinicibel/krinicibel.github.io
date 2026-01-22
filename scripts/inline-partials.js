@@ -110,28 +110,96 @@ for (const file of htmlFiles) {
   mkdirp(path.dirname(destPath));
   let content = fs.readFileSync(file, 'utf8');
 
-  // Replace header/footer includes (flexible about quotes and leading slash)
+  // compute relative prefix depending on page depth ('' for root pages, '../' for one level, '../../'...)
+  const dir = path.dirname(rel);
+  const depth = !dir || dir === '.' ? 0 : dir.split(path.sep).length;
+  const prefix = depth === 0 ? '' : '../'.repeat(depth);
+
+  // Prepare per-page adjusted header/footer (rewrite root links to relative ones)
+  let adjustedHeader = headerT;
+  let adjustedFooter = footerT;
+
+  // Replace href="/" to prefix + index.html
+  adjustedHeader = adjustedHeader.replace(
+    /href=(["'])\/\1/g,
+    (m, q) => `href=${q}${prefix}index.html${q}`
+  );
+  adjustedFooter = adjustedFooter.replace(
+    /href=(["'])\/\1/g,
+    (m, q) => `href=${q}${prefix}index.html${q}`
+  );
+
+  // Rewrite known top-level pages (index, map, opv)
+  adjustedHeader = adjustedHeader.replace(
+    /href=(["'])(?:\/)?index\.html(#[^"']*)?\1/gi,
+    (m, q, hash) => `href=${q}${prefix}index.html${hash || ''}${q}`
+  );
+  adjustedHeader = adjustedHeader.replace(
+    /href=(["'])(?:\/)?map\.html(#[^"']*)?\1/gi,
+    (m, q, hash) => `href=${q}${prefix}map.html${hash || ''}${q}`
+  );
+  adjustedHeader = adjustedHeader.replace(
+    /href=(["'])(?:\/)?opv\.html(#[^"']*)?\1/gi,
+    (m, q, hash) => `href=${q}${prefix}opv.html${hash || ''}${q}`
+  );
+
+  adjustedFooter = adjustedFooter.replace(
+    /href=(["'])(?:\/)?index\.html(#[^"']*)?\1/gi,
+    (m, q, hash) => `href=${q}${prefix}index.html${hash || ''}${q}`
+  );
+  adjustedFooter = adjustedFooter.replace(
+    /href=(["'])(?:\/)?map\.html(#[^"']*)?\1/gi,
+    (m, q, hash) => `href=${q}${prefix}map.html${hash || ''}${q}`
+  );
+  adjustedFooter = adjustedFooter.replace(
+    /href=(["'])(?:\/)?opv\.html(#[^"']*)?\1/gi,
+    (m, q, hash) => `href=${q}${prefix}opv.html${hash || ''}${q}`
+  );
+
+  // Adjust favicon link if present in templates (to reference top-level favicon.svg correctly)
+  adjustedHeader = adjustedHeader.replace(
+    /<link[^>]*href=["'](?:\.?\/)?favicon\.(?:ico|svg)["'][^>]*>/gi,
+    `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml" />`
+  );
+  adjustedFooter = adjustedFooter.replace(
+    /<link[^>]*href=["'](?:\.?\/)?favicon\.(?:ico|svg)["'][^>]*>/gi,
+    `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml" />`
+  );
+
+  // Remove module script tag from footer (we inject per-page entries)
+  adjustedFooter = adjustedFooter.replace(
+    /<script[^>]*src=["']\/?js\/main\.js["'][^>]*>\s*<\/script>/gi,
+    ''
+  );
+
+  // Now replace includes with adjusted content
   content = content.replace(
     /<div\s+data-include=["']\/?templates\/header\.html["']\s*><\/div>/i,
-    headerT
+    adjustedHeader
   );
   content = content.replace(
     /<div\s+data-include=["']\/?templates\/footer\.html["']\s*><\/div>/i,
-    footerT
+    adjustedFooter
   );
 
-  // Remove runtime include loader script references (we inline them)
-  content = content.replace(/<script[^>]*src=["']\/?js\/include\.js["'][^>]*>\s*<\/script>/i, '');
-
-  // Replace favicon links to svg so Vite can process and rewrite them per page
+  // Remove runtime include loader script references (we inline them) and any remaining /js/main.js
   content = content.replace(
-    /<link[^>]*href=["'](?:\.?\/)??favicon\.ico["'][^>]*>/gi,
-    '<link rel="icon" href="favicon.svg" type="image/svg+xml" />'
+    /<script[^>]*src=["']\/?js\/(?:include|main)\.js["'][^>]*>\s*<\/script>/gi,
+    ''
+  );
+
+  // Replace any remaining favicon links to prefixed svg (match any path, incl. file://)
+  content = content.replace(
+    /<link[^>]*href=["'][^"']*favicon\.(?:ico|svg)["'][^>]*>/gi,
+    `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml" />`
   );
 
   // Inject per-page entry script before </body>
   const entryRel = rel.replace(/\.html$/, '.js');
-  const entrySrc = '/entries/' + entryRel.replace(/\\/g, '/');
+  // compute relative src for the entry from the page location
+  const entryPathOnDisk = path.join(TMP, 'entries', entryRel);
+  const entrySrcRel = path.relative(path.dirname(destPath), entryPathOnDisk).replace(/\\/g, '/');
+  const entrySrc = entrySrcRel.startsWith('.') ? entrySrcRel : './' + entrySrcRel;
   const entryScript = `\n    <script type="module" src="${entrySrc}"></script>\n`;
 
   if (content.includes('</body>')) {
@@ -143,9 +211,12 @@ for (const file of htmlFiles) {
   fs.writeFileSync(destPath, content, 'utf8');
 
   // Create corresponding entry file (imports shared main)
-  const entryPathOnDisk = path.join(TMP, 'entries', entryRel);
   mkdirp(path.dirname(entryPathOnDisk));
-  const entryContent = `// Auto-generated entry for ${rel}\nimport '/js/main.js';\n`;
+  // compute relative import path from entry to js/main.js
+  const mainPath = path.join(TMP, 'js', 'main.js');
+  let relToMain = path.relative(path.dirname(entryPathOnDisk), mainPath).replace(/\\/g, '/');
+  if (!relToMain.startsWith('.') && !relToMain.startsWith('/')) relToMain = './' + relToMain;
+  const entryContent = `// Auto-generated entry for ${rel}\nimport '${relToMain}';\n`;
   fs.writeFileSync(entryPathOnDisk, entryContent, 'utf8');
 }
 
