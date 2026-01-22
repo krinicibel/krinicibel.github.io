@@ -123,6 +123,12 @@ for (const file of htmlFiles) {
   // Remove runtime include loader script references (we inline them)
   content = content.replace(/<script[^>]*src=["']\/?js\/include\.js["'][^>]*>\s*<\/script>/i, '');
 
+  // Replace favicon links to svg so Vite can process and rewrite them per page
+  content = content.replace(
+    /<link[^>]*href=["'](?:\.?\/)??favicon\.ico["'][^>]*>/gi,
+    '<link rel="icon" href="favicon.svg" type="image/svg+xml" />'
+  );
+
   // Inject per-page entry script before </body>
   const entryRel = rel.replace(/\.html$/, '.js');
   const entrySrc = '/entries/' + entryRel.replace(/\\/g, '/');
@@ -171,7 +177,8 @@ function collect(dir) {
 const input = collect(root);
 
 export default defineConfig({
-  base: '/',
+  // Use relative base so generated pages work when served from any path/domain
+  base: './',
   build: {
     rollupOptions: {
       input
