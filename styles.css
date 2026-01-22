@@ -1320,12 +1320,15 @@ tbody tr:nth-child(even) {
 /* Image sizing and gallery layout */
 main p > img,
 main p > a > img {
+  /* Limit both width and height so very tall portrait images don't overflow the page */
   max-width: 900px;
-  width: 100%;
+  max-height: calc(80vh - 6rem);
+  width: auto;
   height: auto;
   display: block;
   margin: 0.75rem auto;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 /* Gallery when several images appear together */
@@ -1354,6 +1357,8 @@ main p > a > img {
   main p > img,
   main p > a > img {
     max-width: 100%;
+    max-height: calc(60svh - 4rem);
+    width: auto;
   }
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
