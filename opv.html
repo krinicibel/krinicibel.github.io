@@ -266,6 +266,25 @@
         margin-bottom: 2rem;
       }
 
+      /* Responsive wrapper for tables: allows horizontal scrolling on small screens */
+      .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .table-responsive::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .table-responsive::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 8px;
+      }
+
+      .table-responsive .version-table {
+        min-width: 640px;
+      }
+
       .version-history__header {
         padding: 1.25rem 1.5rem;
         background: var(--bg-hover);
@@ -324,6 +343,9 @@
         padding: 0.9rem 1.25rem;
         border-bottom: 1px solid var(--border-light);
         vertical-align: middle;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
       }
 
       .version-table tbody tr:last-child td {
@@ -475,8 +497,11 @@
           justify-content: center;
         }
 
+        /* На мобильных экранах гарантируем одну карточку в ряд */
         .platforms-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr !important;
+          grid-auto-flow: row;
+          gap: 1.5rem;
         }
 
         .version-table {
@@ -880,544 +905,548 @@
             <span class="version-badge">Актуальная: 4.5</span>
           </div>
 
-          <table class="version-table">
-            <thead>
-              <tr>
-                <th>Версія</th>
-                <th>ZIP-архіў</th>
-                <th>Інсталятар</th>
-                <th>Дата выпуску</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Версія"><span class="version-number version-latest">4.5</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1BFBU-87c79I9XU_rmUVUA5gGdWe3yDV5/view?usp=share_link"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+          <div class="table-responsive">
+            <table class="version-table">
+              <thead>
+                <tr>
+                  <th>Версія</th>
+                  <th>ZIP-архіў</th>
+                  <th>Інсталятар</th>
+                  <th>Дата выпуску</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Версія">
+                    <span class="version-number version-latest">4.5</span>
+                  </td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1BFBU-87c79I9XU_rmUVUA5gGdWe3yDV5/view?usp=share_link"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf/view?usp=share_link"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1KZW-kPMQ3frp0DdOKJzsknlfuNzFaFqf/view?usp=share_link"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">25.11.2022</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">4.4</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1iGKjq3L1330UXKd2lGLyWeLV0k2l6b4T/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">25.11.2022</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">4.4</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1iGKjq3L1330UXKd2lGLyWeLV0k2l6b4T/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1xa0ECaEjOhTBFxkcNgpW_Q4cNG5P-3u2/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1xa0ECaEjOhTBFxkcNgpW_Q4cNG5P-3u2/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">23.08.2022</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">4.3</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1A493o0qRAaCmOoldu__7dsg7CPOcohhV/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">23.08.2022</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">4.3</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1A493o0qRAaCmOoldu__7dsg7CPOcohhV/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1DgZc2ZHCivuz3EvIwmQgjE25D4f26HV4/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1DgZc2ZHCivuz3EvIwmQgjE25D4f26HV4/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">01.07.2022</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">4.2</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1pI_7Fpb86bOjb8Ic6W5aVJBeZM9yjo8S/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">01.07.2022</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">4.2</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1pI_7Fpb86bOjb8Ic6W5aVJBeZM9yjo8S/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1J5Alfw-we0ouuftSYOK6H_YDhweWv-o8/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1J5Alfw-we0ouuftSYOK6H_YDhweWv-o8/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">04.05.2022</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">4.1</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1yPekKcFwTqZBQlo3grWW03HCasYAyyRZ/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">04.05.2022</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">4.1</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1yPekKcFwTqZBQlo3grWW03HCasYAyyRZ/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1_UJ3C4sv2dEVRBOdAsZg_txC_yqeKzVv/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1_UJ3C4sv2dEVRBOdAsZg_txC_yqeKzVv/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">02.04.2022</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">4</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/17GVNuAjuXlgBBnlTy5U2r0r77SGirApk/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">02.04.2022</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">4</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/17GVNuAjuXlgBBnlTy5U2r0r77SGirApk/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1JZMA8Dx7IE1dEYLqyaJrH930cG95ymXU/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1JZMA8Dx7IE1dEYLqyaJrH930cG95ymXU/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">04.02.2022</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">3.1</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1DMSb6_Z5FE90TXeDBplTEKziYenEShEw/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">04.02.2022</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">3.1</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1DMSb6_Z5FE90TXeDBplTEKziYenEShEw/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1fw87DRQIqSPBggVPGc3VhENBSzet-T7m/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1fw87DRQIqSPBggVPGc3VhENBSzet-T7m/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">22.10.2021</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">3</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/16oJiTTNCJ93iwZsWTrJHmTb9avIj-oxh/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">22.10.2021</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">3</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/16oJiTTNCJ93iwZsWTrJHmTb9avIj-oxh/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1TCqXEF55fxvR7jgp6LEkAqNr0oPqgNJK/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1TCqXEF55fxvR7jgp6LEkAqNr0oPqgNJK/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">19.09.2021</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">2.4</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1-DS3eopppmcyiLLukVzTHdOG9aINK72r/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">19.09.2021</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">2.4</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1-DS3eopppmcyiLLukVzTHdOG9aINK72r/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1IGSUAVihwoO9XBWy7c8Hm9_x0CN_ejvA/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1IGSUAVihwoO9XBWy7c8Hm9_x0CN_ejvA/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">04.09.2021</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">2.3</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1dmTj9-DDVrM-CCotphxuRrXLplh3wze-/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">04.09.2021</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">2.3</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1dmTj9-DDVrM-CCotphxuRrXLplh3wze-/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1dxmVfBaMXXePWWrvvEgk5OiAMHxuIVqU/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1dxmVfBaMXXePWWrvvEgk5OiAMHxuIVqU/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">07.08.2021</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">2.2</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1uNqPDLahgKzmG4pj1Ze6uwQdToDUJADo/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">07.08.2021</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">2.2</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1uNqPDLahgKzmG4pj1Ze6uwQdToDUJADo/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1YvwUqpktTfzRdz8mkJpCswVPNsaQm8PU/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1YvwUqpktTfzRdz8mkJpCswVPNsaQm8PU/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">21.06.2021</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">2.1</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1Wjx3YGQNleuL7mVpIDPSSwJr4MN01DJL/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">21.06.2021</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">2.1</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1Wjx3YGQNleuL7mVpIDPSSwJr4MN01DJL/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар">
-                  <a
-                    href="https://drive.google.com/file/d/1hDCvrIg4OXOhDnPL5UGSW0RL1XjdgQz1/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар">
+                    <a
+                      href="https://drive.google.com/file/d/1hDCvrIg4OXOhDnPL5UGSW0RL1XjdgQz1/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Дата"><span class="version-date">01.05.2021</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">0.2</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1blVIGsJAAi7bYEW8UNctLkDDgOR6Zsuu/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Дата"><span class="version-date">01.05.2021</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">0.2</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1blVIGsJAAi7bYEW8UNctLkDDgOR6Zsuu/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар"><span class="no-download">—</span></td>
-                <td data-label="Дата"><span class="version-date">26.07.2020</span></td>
-              </tr>
-              <tr>
-                <td data-label="Версія"><span class="version-number">0.1</span></td>
-                <td data-label="ZIP-архіў">
-                  <a
-                    href="https://drive.google.com/file/d/1yTm-760lLtPJIINdF7ZhzL7TPqhWhD7L/view?usp=sharing"
-                    class="download-link"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар"><span class="no-download">—</span></td>
+                  <td data-label="Дата"><span class="version-date">26.07.2020</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Версія"><span class="version-number">0.1</span></td>
+                  <td data-label="ZIP-архіў">
+                    <a
+                      href="https://drive.google.com/file/d/1yTm-760lLtPJIINdF7ZhzL7TPqhWhD7L/view?usp=sharing"
+                      class="download-link"
                     >
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                    </svg>
-                    Спампаваць
-                  </a>
-                </td>
-                <td data-label="Інсталятар"><span class="no-download">—</span></td>
-                <td data-label="Дата"><span class="version-date">10.07.2020</span></td>
-              </tr>
-            </tbody>
-          </table>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      Спампаваць
+                    </a>
+                  </td>
+                  <td data-label="Інсталятар"><span class="no-download">—</span></td>
+                  <td data-label="Дата"><span class="version-date">10.07.2020</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </main>
