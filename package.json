@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "dev": "vite",
+    "build": "node ./scripts/inline-partials.js && (cd tmp_site && ../node_modules/.bin/vite build --config vite.config.mjs --outDir ../dist) && node -e \"require('fs').writeFileSync('dist/.nojekyll','')\" && rm -rf tmp_site",
+    "preview": "(cd tmp_site && ../node_modules/.bin/vite preview --config vite.config.mjs --port 5173)",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +23,7 @@
   },
   "homepage": "https://github.com/kotru21/krinicibel.github.io#readme",
   "devDependencies": {
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "vite": "^7.3.1"
   }
 }

@@ -14,14 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Execute scripts from included HTML (recreate them so they run)
         el.querySelectorAll('script').forEach((oldScript) => {
           const script = document.createElement('script');
-          if (oldScript.src) {
-            script.src = oldScript.src;
-            // Вставляем скрипт без defer/async, чтобы он выполнялся как можно скорее в нужном порядке
-            script.async = false;
-            script.defer = false;
-          } else {
+          // Копируем все атрибуты оригинального <script> (type, defer, async, crossorigin и т.д.)
+          Array.from(oldScript.attributes).forEach(({ name, value }) => {
+            script.setAttribute(name, value);
+          });
+
+          if (!oldScript.src) {
             script.textContent = oldScript.textContent;
           }
+
           document.body.appendChild(script);
           oldScript.remove();
         });

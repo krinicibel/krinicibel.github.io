@@ -1,0 +1,8 @@
+node_modules/
+dist/
+tmp_site/
+.DS_Store
+.vscode/
+.env
+.idea/
+*.log
