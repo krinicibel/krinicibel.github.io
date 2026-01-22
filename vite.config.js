@@ -1,6 +1,5 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import fs from 'fs';
+const { resolve } = require('path');
+const fs = require('fs');
 
 function collectHtmlFiles(root) {
   const out = {};
@@ -80,17 +79,15 @@ function htmlPartialsPlugin() {
   };
 }
 
-export default defineConfig(({ command, mode }) => {
-  const root = process.cwd();
-  const input = collectHtmlFiles(root);
+const root = process.cwd();
+const input = collectHtmlFiles(root);
 
-  return {
-    base: './',
-    plugins: [htmlPartialsPlugin()],
-    build: {
-      rollupOptions: {
-        input
-      }
+module.exports = {
+  base: './',
+  plugins: [htmlPartialsPlugin()],
+  build: {
+    rollupOptions: {
+      input
     }
-  };
-});
+  }
+};
