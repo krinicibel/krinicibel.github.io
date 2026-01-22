@@ -1331,6 +1331,15 @@ main p > a > img {
   object-fit: contain;
 }
 
+/* Also limit any other images inside the main content (e.g., images inside headings) */
+main img {
+  max-width: calc(100vw - 4rem);
+  max-height: calc(80vh - 6rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Gallery when several images appear together */
 .gallery {
   display: grid;
@@ -1355,7 +1364,8 @@ main p > a > img {
 
 @media (max-width: 700px) {
   main p > img,
-  main p > a > img {
+  main p > a > img,
+  main img {
     max-width: 100%;
     max-height: calc(60svh - 4rem);
     width: auto;
