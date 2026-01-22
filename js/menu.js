@@ -1,5 +1,3 @@
-// menu.js — модульная версия для Vite
-// Инициализация меню — выполняется сразу при импорте/загрузке модуля
 export function initMenu() {
   // compute prefix helper
   function computePrefix() {
@@ -52,6 +50,8 @@ export function initMenu() {
   const body = document.body;
   const header = document.querySelector('.site-header');
 
+  let savedScrollPosition = 0;
+
   // Функция закрытия меню
   function closeMenu() {
     if (!burger || !mobileNav) return;
@@ -60,19 +60,27 @@ export function initMenu() {
     mobileNav.classList.remove('open');
     mobileNav.setAttribute('aria-hidden', 'true');
     body.classList.remove('no-scroll');
+
+    body.style.top = '';
+    body.style.position = '';
+    window.scrollTo(0, savedScrollPosition);
   }
 
-  // Функция открытия меню
   function openMenu() {
     if (!burger || !mobileNav) return;
+
+    savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
     burger.setAttribute('aria-expanded', 'true');
     mobileNav.classList.add('open');
     mobileNav.setAttribute('aria-hidden', 'false');
     body.classList.add('no-scroll');
+
+    body.style.position = 'fixed';
+    body.style.top = `-${savedScrollPosition}px`;
+    body.style.width = '100%';
   }
 
-  // Toggle mobile menu по клику на бургер
   burger?.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -86,17 +94,15 @@ export function initMenu() {
     }
   });
 
-  // Закрытие по клику на overlay (затемнённый фон)
   overlay?.addEventListener('click', closeMenu);
 
-  // Также поддержка старого атрибута data-close-menu
   document.querySelectorAll('[data-close-menu]').forEach((el) => {
     el.addEventListener('click', closeMenu);
   });
 
-  // Submenu toggles (аккордеон)
-  document.querySelectorAll('.submenu-toggle').forEach((toggle) => {
-    toggle.addEventListener('click', (e) => {
+  mobileNav?.addEventListener('click', (e) => {
+    const toggle = e.target.closest('.submenu-toggle');
+    if (toggle) {
       e.preventDefault();
       e.stopPropagation();
 
@@ -110,15 +116,44 @@ export function initMenu() {
       toggle.setAttribute('aria-expanded', newOpen ? 'true' : 'false');
       submenu.classList.toggle('open', newOpen);
       submenu.setAttribute('aria-hidden', newOpen ? 'false' : 'true');
-    });
-  });
+      return;
+    }
 
-  // Закрытие меню при клике на ссылку
-  mobileNav?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      // Небольшая задержка для плавности
-      setTimeout(closeMenu, 100);
-    });
+    const link = e.target.closest('a');
+    if (link) {
+      const href = link.getAttribute('href');
+
+      if (href && href.startsWith('#') && href.length > 1) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const targetId = href.substring(1);
+
+        const targetElement =
+          document.getElementById(targetId) ||
+          document.querySelector(`a[name="${targetId}"]`) ||
+          document.querySelector(`[name="${targetId}"]`);
+
+        closeMenu();
+
+        if (targetElement) {
+          setTimeout(() => {
+            const rect = targetElement.getBoundingClientRect();
+            const absoluteTop = rect.top + window.pageYOffset;
+            const headerHeight = header?.offsetHeight || 0;
+
+            window.scrollTo({
+              top: absoluteTop - headerHeight - 20,
+              behavior: 'smooth',
+            });
+          }, 50);
+        }
+      } else if (href && href !== '#' && !href.startsWith('javascript:')) {
+        closeMenu();
+      } else if (href === '#') {
+        e.preventDefault();
+      }
+    }
   });
 
   // Закрытие по Escape
@@ -143,16 +178,12 @@ export function initMenu() {
     { passive: true }
   );
 
-  // ==========================
-  // Header scroll effect (rAF + hysteresis to avoid flicker)
-  // ==========================
   if (header) {
     let ticking = false;
     let scrolledState = header.classList.contains('header-scrolled');
-    const ADD_THRESHOLD = 60; // scroll >= this -> add class
-    const REMOVE_THRESHOLD = 40; // scroll < this -> remove class
+    const ADD_THRESHOLD = 60;
+    const REMOVE_THRESHOLD = 40;
 
-    // Initialize based on current position
     const initScroll = window.pageYOffset || 0;
     if (initScroll > ADD_THRESHOLD && !scrolledState) {
       header.classList.add('header-scrolled');
@@ -181,18 +212,13 @@ export function initMenu() {
     );
   }
 
-  // ==========================
-  // Catalog Tables Enhancement
-  // ==========================
   document.querySelectorAll('.catalog-table').forEach((table) => {
-    // 1. Добавляем colgroup если нет
     if (!table.querySelector('colgroup')) {
       const colgroup = document.createElement('colgroup');
       colgroup.innerHTML = '<col><col><col>';
       table.insertBefore(colgroup, table.firstChild);
     }
 
-    // 2. Добавляем thead если нет
     if (!table.querySelector('thead')) {
       const tbody = table.querySelector('tbody');
       if (tbody) {
@@ -208,9 +234,7 @@ export function initMenu() {
       }
     }
 
-    // 3. Добавляем data-label для мобильной версии
     const labels = ['Название', 'Место', 'Координаты'];
-
     table.querySelectorAll('tbody tr').forEach((row) => {
       const cells = row.querySelectorAll('td');
       cells.forEach((cell, index) => {
@@ -220,7 +244,6 @@ export function initMenu() {
       });
     });
 
-    // 4. Оборачиваем в wrapper если нет
     if (!table.parentElement.classList.contains('table-wrapper')) {
       const wrapper = document.createElement('div');
       wrapper.className = 'table-wrapper';
@@ -229,9 +252,6 @@ export function initMenu() {
     }
   });
 
-  // ==========================
-  // Debug info (можно убрать в продакшене)
-  // ==========================
   console.log('Menu.js loaded:', {
     burger: !!document.querySelector('.burger'),
     mobileNav: !!document.querySelector('.mobile-nav'),
