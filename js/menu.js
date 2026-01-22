@@ -1,5 +1,6 @@
 // menu.js — модульная версия для Vite
-import { menuData } from './menu-data.js';
+import menuRaw from '../data/menu.json';
+import { localizeMenu } from './menu-generator.js';
 // Инициализация меню — выполняется сразу при импорте/загрузке модуля
 export function initMenu() {
   // compute prefix helper (соответствует include.js)
@@ -11,6 +12,8 @@ export function initMenu() {
   }
 
   const prefix = computePrefix();
+  const locale = document.documentElement.lang || 'ru';
+  const menuData = localizeMenu(menuRaw, locale);
 
   // build menus from menuData (desktop + mobile)
   (function buildMenus() {

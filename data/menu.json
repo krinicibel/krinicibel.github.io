@@ -1,0 +1,40 @@
+[
+  {
+    "title": { "ru": "Брестская область", "en": "Brest Region" },
+    "anchor": "#b",
+    "items": [
+      { "title": { "ru": "Барановичский район", "en": "Baranovichi district" }, "anchor": "#bar" },
+      { "title": { "ru": "Березовский район", "en": "Berezovsky district" }, "anchor": "#ber" },
+      { "title": { "ru": "Ивацевичский район", "en": "Ivacevichi district" }, "anchor": "#iva" },
+      { "title": { "ru": "Каменецкий район", "en": "Kamenets district" }, "anchor": "#kam" },
+      { "title": { "ru": "Ляховичский район", "en": "Lyakhovichi district" }, "anchor": "#lah" },
+      { "title": { "ru": "Пружанский район", "en": "Pruzhany district" }, "anchor": "#pru" }
+    ]
+  },
+  {
+    "title": { "ru": "Гродненская область", "en": "Grodno Region" },
+    "anchor": "#g",
+    "items": [
+      { "title": { "ru": "Вороновский район", "en": "Voronovo district" }, "anchor": "#vor" },
+      { "title": { "ru": "Гродненский район", "en": "Grodno district" }, "anchor": "#gro" },
+      { "title": { "ru": "Дятловский район", "en": "Dyatlovo district" }, "anchor": "#dya" },
+      { "title": { "ru": "Зельвенский район", "en": "Zelva district" }, "anchor": "#zel" },
+      { "title": { "ru": "Новогрудский район", "en": "Novogrudok district" }, "anchor": "#nov" },
+      { "title": { "ru": "Слонимский район", "en": "Slonim district" }, "anchor": "#slo" }
+    ]
+  },
+  {
+    "title": { "ru": "Минская область", "en": "Minsk Region" },
+    "anchor": "#m",
+    "items": [
+      { "title": { "ru": "Дзержинский район", "en": "Dzerzhinsk district" }, "anchor": "#dze" },
+      { "title": { "ru": "Клецкий район", "en": "Kletsk district" }, "anchor": "#kle" },
+      { "title": { "ru": "Копыльский район", "en": "Kopyl district" }, "anchor": "#kop" },
+      { "title": { "ru": "Минский район", "en": "Minsk district" }, "anchor": "#min" },
+      { "title": { "ru": "Несвижский район", "en": "Nesvizh district" }, "anchor": "#nes" },
+      { "title": { "ru": "Столбцовский район", "en": "Stolbtsy district" }, "anchor": "#sto" }
+    ]
+  },
+  { "title": { "ru": "Карта", "en": "Map" }, "href": "map.html" },
+  { "title": { "ru": "Загрузить OPV", "en": "Upload OPV" }, "href": "opv.html" }
+]
