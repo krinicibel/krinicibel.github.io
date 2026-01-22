@@ -1,40 +1,40 @@
 [
   {
-    "title": { "ru": "Брестская область", "en": "Brest Region" },
+    "title": "Брестская область",
     "anchor": "#b",
     "items": [
-      { "title": { "ru": "Барановичский район", "en": "Baranovichi district" }, "anchor": "#bar" },
-      { "title": { "ru": "Березовский район", "en": "Berezovsky district" }, "anchor": "#ber" },
-      { "title": { "ru": "Ивацевичский район", "en": "Ivacevichi district" }, "anchor": "#iva" },
-      { "title": { "ru": "Каменецкий район", "en": "Kamenets district" }, "anchor": "#kam" },
-      { "title": { "ru": "Ляховичский район", "en": "Lyakhovichi district" }, "anchor": "#lah" },
-      { "title": { "ru": "Пружанский район", "en": "Pruzhany district" }, "anchor": "#pru" }
+      { "title": "Барановичский район", "anchor": "#bar" },
+      { "title": "Березовский район", "anchor": "#ber" },
+      { "title": "Ивацевичский район", "anchor": "#iva" },
+      { "title": "Каменецкий район", "anchor": "#kam" },
+      { "title": "Ляховичский район", "anchor": "#lah" },
+      { "title": "Пружанский район", "anchor": "#pru" }
     ]
   },
   {
-    "title": { "ru": "Гродненская область", "en": "Grodno Region" },
+    "title": "Гродненская область",
     "anchor": "#g",
     "items": [
-      { "title": { "ru": "Вороновский район", "en": "Voronovo district" }, "anchor": "#vor" },
-      { "title": { "ru": "Гродненский район", "en": "Grodno district" }, "anchor": "#gro" },
-      { "title": { "ru": "Дятловский район", "en": "Dyatlovo district" }, "anchor": "#dya" },
-      { "title": { "ru": "Зельвенский район", "en": "Zelva district" }, "anchor": "#zel" },
-      { "title": { "ru": "Новогрудский район", "en": "Novogrudok district" }, "anchor": "#nov" },
-      { "title": { "ru": "Слонимский район", "en": "Slonim district" }, "anchor": "#slo" }
+      { "title": "Вороновский район", "anchor": "#vor" },
+      { "title": "Гродненский район", "anchor": "#gro" },
+      { "title": "Дятловский район", "anchor": "#dya" },
+      { "title": "Зельвенский район", "anchor": "#zel" },
+      { "title": "Новогрудский район", "anchor": "#nov" },
+      { "title": "Слонимский район", "anchor": "#slo" }
     ]
   },
   {
-    "title": { "ru": "Минская область", "en": "Minsk Region" },
+    "title": "Минская область",
     "anchor": "#m",
     "items": [
-      { "title": { "ru": "Дзержинский район", "en": "Dzerzhinsk district" }, "anchor": "#dze" },
-      { "title": { "ru": "Клецкий район", "en": "Kletsk district" }, "anchor": "#kle" },
-      { "title": { "ru": "Копыльский район", "en": "Kopyl district" }, "anchor": "#kop" },
-      { "title": { "ru": "Минский район", "en": "Minsk district" }, "anchor": "#min" },
-      { "title": { "ru": "Несвижский район", "en": "Nesvizh district" }, "anchor": "#nes" },
-      { "title": { "ru": "Столбцовский район", "en": "Stolbtsy district" }, "anchor": "#sto" }
+      { "title": "Дзержинский район", "anchor": "#dze" },
+      { "title": "Клецкий район", "anchor": "#kle" },
+      { "title": "Копыльский район", "anchor": "#kop" },
+      { "title": "Минский район", "anchor": "#min" },
+      { "title": "Несвижский район", "anchor": "#nes" },
+      { "title": "Столбцовский район", "anchor": "#sto" }
     ]
   },
-  { "title": { "ru": "Карта", "en": "Map" }, "href": "map.html" },
-  { "title": { "ru": "Загрузить OPV", "en": "Upload OPV" }, "href": "opv.html" }
+  { "title": "Карта", "href": "map.html" },
+  { "title": "Загрузить OPV", "href": "opv.html" }
 ]

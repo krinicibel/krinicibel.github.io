@@ -1,6 +1,4 @@
 // menu.js — модульная версия для Vite
-import menuRaw from '../data/menu.json';
-import { localizeMenu } from './menu-generator.js';
 // Инициализация меню — выполняется сразу при импорте/загрузке модуля
 export function initMenu() {
   // compute prefix helper
@@ -12,114 +10,38 @@ export function initMenu() {
   }
 
   const prefix = computePrefix();
-  const locale = document.documentElement.lang || 'ru';
-  const menuData = localizeMenu(menuRaw, locale);
 
-  // build menus from menuData (desktop + mobile)
-  (function buildMenus() {
-    const mainMenu = document.querySelector('.main-menu');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mainMenu) mainMenu.innerHTML = '';
-    if (mobileMenu) mobileMenu.innerHTML = '';
+  // If the header was server-rendered by Vite plugin, menu lists already exist.
+  // Ensure mobile submenus have accessibility attributes and mark active links.
+  document.querySelectorAll('.mobile-submenu').forEach((ul) => {
+    if (!ul.hasAttribute('aria-hidden')) ul.setAttribute('aria-hidden', 'true');
+  });
 
-    let submenuIdCounter = 0;
-    menuData.forEach((item) => {
-      // Desktop
-      if (mainMenu) {
-        const li = document.createElement('li');
-        if (item.items && item.items.length) {
-          li.className = 'has-submenu';
-          const a = document.createElement('a');
-          a.href = `${prefix}index.html${item.anchor || ''}`;
-          a.textContent = item.title;
-          li.appendChild(a);
+  function normalizePath(path) {
+    if (!path) return '/index.html';
+    return path === '/' ? '/index.html' : path;
+  }
 
-          const ul = document.createElement('ul');
-          ul.className = 'submenu';
-          item.items.forEach((sub) => {
-            const sli = document.createElement('li');
-            const sa = document.createElement('a');
-            sa.href = `${prefix}index.html${sub.anchor || ''}`;
-            sa.textContent = sub.title;
-            sli.appendChild(sa);
-            ul.appendChild(sli);
-          });
-          li.appendChild(ul);
-        } else {
-          const a = document.createElement('a');
-          a.href = item.href ? `${prefix}${item.href}` : `${prefix}index.html${item.anchor || ''}`;
-          a.textContent = item.title;
-          li.appendChild(a);
-        }
-        mainMenu.appendChild(li);
-      }
-
-      // Mobile
-      if (mobileMenu) {
-        const mli = document.createElement('li');
-        if (item.items && item.items.length) {
-          const wrapper = document.createElement('div');
-          wrapper.className = 'mobile-menu-item';
-          const a = document.createElement('a');
-          a.href = `${prefix}index.html${item.anchor || ''}`;
-          a.textContent = item.title;
-          wrapper.appendChild(a);
-
-          const btn = document.createElement('button');
-          btn.className = 'submenu-toggle';
-          btn.type = 'button';
-          btn.setAttribute('aria-expanded', 'false');
-          const sid = `mobile-submenu-${++submenuIdCounter}`;
-          btn.setAttribute('aria-controls', sid);
-          btn.setAttribute('aria-label', 'Открыть подменю');
-          btn.innerHTML = `<svg width=\"20\" height=\"20\"><use href=\"#icon-chevron\"></use></svg>`;
-          wrapper.appendChild(btn);
-
-          const sul = document.createElement('ul');
-          sul.className = 'mobile-submenu';
-          sul.id = sid;
-          sul.setAttribute('aria-hidden', 'true');
-          item.items.forEach((sub) => {
-            const sli = document.createElement('li');
-            const sa = document.createElement('a');
-            sa.href = `${prefix}index.html${sub.anchor || ''}`;
-            sa.textContent = sub.title;
-            sli.appendChild(sa);
-            sul.appendChild(sli);
-          });
-
-          mli.appendChild(wrapper);
-          mli.appendChild(sul);
-        } else {
-          const wrapper = document.createElement('div');
-          wrapper.className = 'mobile-menu-item';
-          const a = document.createElement('a');
-          a.href = `${prefix}${item.href || 'index.html'}`;
-          a.textContent = item.title;
-          wrapper.appendChild(a);
-          mli.appendChild(wrapper);
-        }
-        mobileMenu.appendChild(mli);
-      }
-    });
-
-    // Mark active links (normalize / and /index.html)
-    function normalizePath(path) {
-      if (!path) return '/index.html';
-      return path === '/' ? '/index.html' : path;
-    }
+  function markActiveLinks() {
     const normLocation = normalizePath(location.pathname);
     document.querySelectorAll('.main-menu a, .mobile-menu a').forEach((link) => {
       try {
-        const linkUrl = new URL(link.getAttribute('href'), location.href);
+        const linkUrl = new URL(link.getAttribute('href') || '', location.href);
         const linkPath = normalizePath(linkUrl.pathname);
         if (linkPath === normLocation) {
           link.setAttribute('aria-current', 'page');
           link.classList.add('is-active');
+        } else {
+          link.removeAttribute('aria-current');
+          link.classList.remove('is-active');
         }
       } catch (e) {}
     });
-  })();
+  }
+
+  // Run once on init
+  markActiveLinks();
+
 
   // ==========================
   // Mobile Menu

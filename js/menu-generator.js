@@ -1,19 +1,16 @@
 // js/menu-generator.js
-export function getTitle(maybeObj, locale = 'ru') {
-  if (!maybeObj) return '';
-  if (typeof maybeObj === 'string') return maybeObj;
-  if (typeof maybeObj === 'object') return maybeObj[locale] || maybeObj['ru'] || Object.values(maybeObj)[0] || '';
-  return '';
-}
-
-export function localizeMenu(rawMenu, locale = 'ru') {
+// Simplified: no i18n — menu titles are plain strings
+export function normalizeMenu(rawMenu) {
   return rawMenu.map((item) => {
-    const localized = {
-      title: getTitle(item.title, locale),
+    const normalized = {
+      title: typeof item.title === 'string' ? item.title : (item.title && item.title.ru) || '',
     };
-    if (item.anchor) localized.anchor = item.anchor;
-    if (item.href) localized.href = item.href;
-    if (item.items) localized.items = item.items.map((sub) => ({ title: getTitle(sub.title, locale), anchor: sub.anchor, href: sub.href }));
-    return localized;
+    if (item.anchor) normalized.anchor = item.anchor;
+    if (item.href) normalized.href = item.href;
+    if (item.items) normalized.items = item.items.map((sub) => ({ title: typeof sub.title === 'string' ? sub.title : (sub.title && sub.title.ru) || '', anchor: sub.anchor, href: sub.href }));
+    return normalized;
   });
 }
+
+export default normalizeMenu;
+
