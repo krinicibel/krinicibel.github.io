@@ -103,6 +103,12 @@ for (const item of fs.readdirSync(ROOT)) {
 // Ensure entries dir
 mkdirp(path.join(TMP, 'entries'));
 
+// Universal helper: adjust top-level .html links (file.html or /file.html) by adding prefix
+function adjustPaths(html, prefix) {
+  if (!prefix) return html;
+  return html.replace(/href=(['"])(?:\/)?([A-Za-z0-9_-]+\.html)(#[^\"']*)?\1/g, (m, q, file, hash = '') => `href=${q}${prefix}${file}${hash}${q}`);
+}
+
 // Process each HTML file
 for (const file of htmlFiles) {
   const rel = path.relative(ROOT, file);
@@ -120,41 +126,12 @@ for (const file of htmlFiles) {
   let adjustedFooter = footerT;
 
   // Replace href="/" to prefix + index.html
-  adjustedHeader = adjustedHeader.replace(
-    /href=(["'])\/\1/g,
-    (m, q) => `href=${q}${prefix}index.html${q}`
-  );
-  adjustedFooter = adjustedFooter.replace(
-    /href=(["'])\/\1/g,
-    (m, q) => `href=${q}${prefix}index.html${q}`
-  );
+  adjustedHeader = adjustedHeader.replace(/href=(['"])\/\1/g, (m, q) => `href=${q}${prefix}index.html${q}`);
+  adjustedFooter = adjustedFooter.replace(/href=(['"])\/\1/g, (m, q) => `href=${q}${prefix}index.html${q}`);
 
-  // Rewrite known top-level pages (index, map, opv)
-  adjustedHeader = adjustedHeader.replace(
-    /href=(["'])(?:\/)?index\.html(#[^"']*)?\1/gi,
-    (m, q, hash) => `href=${q}${prefix}index.html${hash || ''}${q}`
-  );
-  adjustedHeader = adjustedHeader.replace(
-    /href=(["'])(?:\/)?map\.html(#[^"']*)?\1/gi,
-    (m, q, hash) => `href=${q}${prefix}map.html${hash || ''}${q}`
-  );
-  adjustedHeader = adjustedHeader.replace(
-    /href=(["'])(?:\/)?opv\.html(#[^"']*)?\1/gi,
-    (m, q, hash) => `href=${q}${prefix}opv.html${hash || ''}${q}`
-  );
-
-  adjustedFooter = adjustedFooter.replace(
-    /href=(["'])(?:\/)?index\.html(#[^"']*)?\1/gi,
-    (m, q, hash) => `href=${q}${prefix}index.html${hash || ''}${q}`
-  );
-  adjustedFooter = adjustedFooter.replace(
-    /href=(["'])(?:\/)?map\.html(#[^"']*)?\1/gi,
-    (m, q, hash) => `href=${q}${prefix}map.html${hash || ''}${q}`
-  );
-  adjustedFooter = adjustedFooter.replace(
-    /href=(["'])(?:\/)?opv\.html(#[^"']*)?\1/gi,
-    (m, q, hash) => `href=${q}${prefix}opv.html${hash || ''}${q}`
-  );
+  // Adjust top-level .html files (map.html, opv.html, about.html, etc.)
+  adjustedHeader = adjustPaths(adjustedHeader, prefix);
+  adjustedFooter = adjustPaths(adjustedFooter, prefix);
 
   // Adjust favicon link if present in templates (to reference top-level favicon.svg correctly)
   adjustedHeader = adjustedHeader.replace(

@@ -1,0 +1,42 @@
+// js/menu-data.js
+// Структура меню (источник правды). Генерируется в desktop и mobile меню.
+export const menuData = [
+  {
+    title: 'Брестская область',
+    anchor: '#b',
+    items: [
+      { title: 'Барановичский район', anchor: '#bar' },
+      { title: 'Березовский район', anchor: '#ber' },
+      { title: 'Ивацевичский район', anchor: '#iva' },
+      { title: 'Каменецкий район', anchor: '#kam' },
+      { title: 'Ляховичский район', anchor: '#lah' },
+      { title: 'Пружанский район', anchor: '#pru' },
+    ],
+  },
+  {
+    title: 'Гродненская область',
+    anchor: '#g',
+    items: [
+      { title: 'Вороновский район', anchor: '#vor' },
+      { title: 'Гродненский район', anchor: '#gro' },
+      { title: 'Дятловский район', anchor: '#dya' },
+      { title: 'Зельвенский район', anchor: '#zel' },
+      { title: 'Новогрудский район', anchor: '#nov' },
+      { title: 'Слонимский район', anchor: '#slo' },
+    ],
+  },
+  {
+    title: 'Минская область',
+    anchor: '#m',
+    items: [
+      { title: 'Дзержинский район', anchor: '#dze' },
+      { title: 'Клецкий район', anchor: '#kle' },
+      { title: 'Копыльский район', anchor: '#kop' },
+      { title: 'Минский район', anchor: '#min' },
+      { title: 'Несвижский район', anchor: '#nes' },
+      { title: 'Столбцовский район', anchor: '#sto' },
+    ],
+  },
+  { title: 'Карта', href: 'map.html' },
+  { title: 'Загрузить OPV', href: 'opv.html' },
+];

@@ -1,6 +1,122 @@
 // menu.js — модульная версия для Vite
+import { menuData } from './menu-data.js';
 // Инициализация меню — выполняется сразу при импорте/загрузке модуля
 export function initMenu() {
+  // compute prefix helper (соответствует include.js)
+  function computePrefix() {
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const isFile = pathParts.length === 0 || /\.[a-zA-Z0-9]+$/.test(pathParts[pathParts.length - 1]);
+    const depth = isFile ? Math.max(0, pathParts.length - 1) : pathParts.length;
+    return depth === 0 ? '' : '../'.repeat(depth);
+  }
+
+  const prefix = computePrefix();
+
+  // build menus from menuData (desktop + mobile)
+  (function buildMenus() {
+    const mainMenu = document.querySelector('.main-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mainMenu) mainMenu.innerHTML = '';
+    if (mobileMenu) mobileMenu.innerHTML = '';
+
+    let submenuIdCounter = 0;
+    menuData.forEach((item) => {
+      // Desktop
+      if (mainMenu) {
+        const li = document.createElement('li');
+        if (item.items && item.items.length) {
+          li.className = 'has-submenu';
+          const a = document.createElement('a');
+          a.href = `${prefix}index.html${item.anchor || ''}`;
+          a.textContent = item.title;
+          li.appendChild(a);
+
+          const ul = document.createElement('ul');
+          ul.className = 'submenu';
+          item.items.forEach((sub) => {
+            const sli = document.createElement('li');
+            const sa = document.createElement('a');
+            sa.href = `${prefix}index.html${sub.anchor || ''}`;
+            sa.textContent = sub.title;
+            sli.appendChild(sa);
+            ul.appendChild(sli);
+          });
+          li.appendChild(ul);
+        } else {
+          const a = document.createElement('a');
+          a.href = item.href ? `${prefix}${item.href}` : `${prefix}index.html${item.anchor || ''}`;
+          a.textContent = item.title;
+          li.appendChild(a);
+        }
+        mainMenu.appendChild(li);
+      }
+
+      // Mobile
+      if (mobileMenu) {
+        const mli = document.createElement('li');
+        if (item.items && item.items.length) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'mobile-menu-item';
+          const a = document.createElement('a');
+          a.href = `${prefix}index.html${item.anchor || ''}`;
+          a.textContent = item.title;
+          wrapper.appendChild(a);
+
+          const btn = document.createElement('button');
+          btn.className = 'submenu-toggle';
+          btn.type = 'button';
+          btn.setAttribute('aria-expanded', 'false');
+          const sid = `mobile-submenu-${++submenuIdCounter}`;
+          btn.setAttribute('aria-controls', sid);
+          btn.setAttribute('aria-label', 'Открыть подменю');
+          btn.innerHTML = `<svg width=\"20\" height=\"20\"><use href=\"#icon-chevron\"></use></svg>`;
+          wrapper.appendChild(btn);
+
+          const sul = document.createElement('ul');
+          sul.className = 'mobile-submenu';
+          sul.id = sid;
+          item.items.forEach((sub) => {
+            const sli = document.createElement('li');
+            const sa = document.createElement('a');
+            sa.href = `${prefix}index.html${sub.anchor || ''}`;
+            sa.textContent = sub.title;
+            sli.appendChild(sa);
+            sul.appendChild(sli);
+          });
+
+          mli.appendChild(wrapper);
+          mli.appendChild(sul);
+        } else {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'mobile-menu-item';
+          const a = document.createElement('a');
+          a.href = `${prefix}${item.href || 'index.html'}`;
+          a.textContent = item.title;
+          wrapper.appendChild(a);
+          mli.appendChild(wrapper);
+        }
+        mobileMenu.appendChild(mli);
+      }
+    });
+
+    // Mark active links (normalize / and /index.html)
+    function normalizePath(path) {
+      if (!path) return '/index.html';
+      return path === '/' ? '/index.html' : path;
+    }
+    const normLocation = normalizePath(location.pathname);
+    document.querySelectorAll('.main-menu a, .mobile-menu a').forEach((link) => {
+      try {
+        const linkUrl = new URL(link.getAttribute('href'), location.href);
+        const linkPath = normalizePath(linkUrl.pathname);
+        if (linkPath === normLocation) {
+          link.setAttribute('aria-current', 'page');
+          link.classList.add('is-active');
+        }
+      } catch (e) {}
+    });
+  })();
+
   // ==========================
   // Mobile Menu
   // ==========================

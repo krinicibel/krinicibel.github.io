@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const depth = isFile ? Math.max(0, pathParts.length - 1) : pathParts.length;
   const prefix = depth === 0 ? '' : '../'.repeat(depth);
 
+  // Universal helper: adjust top-level .html links (file.html or /file.html) by adding prefix
+  function adjustPaths(html, prefix) {
+    if (!prefix) return html;
+    return html.replace(
+      /href=(['"])(?:\/)?([A-Za-z0-9_-]+\.html)(#[^\"']*)?\1/g,
+      (m, q, file, hash = '') => `href=${q}${prefix}${file}${hash}${q}`
+    );
+  }
+
   // Обрабатываем include'ы последовательно (в порядке DOM), чтобы гарантировать вставку header до запуска скриптов footer
   (async () => {
     for (const el of includes) {
@@ -20,19 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // href="/" -> prefix + index.html
         html = html.replace(/href=(["'])\/\1/g, (m, q) => `href=${q}${prefix}index.html${q}`);
 
-        // index/map/opv (с или без ведущего слэша, с optional hash)
-        html = html.replace(
-          /href=(["'])(?:\/)?index\.html(#[^"']*)?\1/gi,
-          (m, q, hash) => `href=${q}${prefix}index.html${hash || ''}${q}`
-        );
-        html = html.replace(
-          /href=(["'])(?:\/)?map\.html(#[^"']*)?\1/gi,
-          (m, q, hash) => `href=${q}${prefix}map.html${hash || ''}${q}`
-        );
-        html = html.replace(
-          /href=(["'])(?:\/)?opv\.html(#[^"']*)?\1/gi,
-          (m, q, hash) => `href=${q}${prefix}opv.html${hash || ''}${q}`
-        );
+        // Adjust top-level html files automatically (map.html, opv.html, about.html, etc.)
+        html = adjustPaths(html, prefix);
 
         // favicon -> use prefixed favicon.svg
         html = html.replace(
