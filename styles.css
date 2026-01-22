@@ -1317,6 +1317,50 @@ tbody tr:nth-child(even) {
   z-index: 1;
 }
 
+/* Image sizing and gallery layout */
+main p > img,
+main p > a > img {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.75rem auto;
+  border-radius: 8px;
+}
+
+/* Gallery when several images appear together */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  align-items: start;
+  margin: 0.5rem 0;
+}
+
+.gallery a, .gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery a img, main p > a > img, main p > img {
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+@media (max-width: 700px) {
+  main p > img,
+  main p > a > img {
+    max-width: 100%;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.4rem;
+  }
+}
+
 .gallery-item::after {
   content: '🔍';
   position: absolute;
@@ -1359,13 +1403,33 @@ tbody tr:nth-child(even) {
   visibility: visible;
 }
 
-.lightbox img {
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-xl);
+/* Space around lightbox content so controls don't overlap (gaps = 2rem) */
+.lightbox {
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
+.lightbox img {
+  /* Respect both viewport width and height with safe gaps for controls */
+  max-width: calc(100vw - 4rem);
+  max-height: calc(100vh - 8rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xl);
+  outline: none;
+}
+
+@media (max-width: 700px) {
+  /* Dynamic viewport units on mobile and slightly smaller gaps */
+  .lightbox img {
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100svh - 6rem);
+  }
+}
+
+.lightbox__close,
 .lightbox-close {
   position: absolute;
   top: 2rem;
@@ -1378,12 +1442,64 @@ tbody tr:nth-child(even) {
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--transition);
 }
 
+.lightbox__close:hover,
 .lightbox-close:hover {
   background: rgba(255,255,255,0.2);
   transform: rotate(90deg);
+}
+
+/* Prev/Next buttons */
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.lightbox__prev { left: 2rem; }
+.lightbox__next { right: 2rem; }
+
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-50%) scale(1.03);
+}
+
+.lightbox__caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  max-width: 90vw;
+  text-align: center;
+  display: none;
+}
+
+.lightbox.open .lightbox__caption {
+  display: block;
 }
 
 /* ==========================
