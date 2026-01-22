@@ -4,7 +4,8 @@ export function initMenu() {
   // compute prefix helper
   function computePrefix() {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
-    const isFile = pathParts.length === 0 || /\.[a-zA-Z0-9]+$/.test(pathParts[pathParts.length - 1]);
+    const isFile =
+      pathParts.length === 0 || /\.[a-zA-Z0-9]+$/.test(pathParts[pathParts.length - 1]);
     const depth = isFile ? Math.max(0, pathParts.length - 1) : pathParts.length;
     return depth === 0 ? '' : '../'.repeat(depth);
   }
@@ -41,7 +42,6 @@ export function initMenu() {
 
   // Run once on init
   markActiveLinks();
-
 
   // ==========================
   // Mobile Menu

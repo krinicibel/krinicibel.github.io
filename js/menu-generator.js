@@ -7,10 +7,14 @@ export function normalizeMenu(rawMenu) {
     };
     if (item.anchor) normalized.anchor = item.anchor;
     if (item.href) normalized.href = item.href;
-    if (item.items) normalized.items = item.items.map((sub) => ({ title: typeof sub.title === 'string' ? sub.title : (sub.title && sub.title.ru) || '', anchor: sub.anchor, href: sub.href }));
+    if (item.items)
+      normalized.items = item.items.map((sub) => ({
+        title: typeof sub.title === 'string' ? sub.title : (sub.title && sub.title.ru) || '',
+        anchor: sub.anchor,
+        href: sub.href,
+      }));
     return normalized;
   });
 }
 
 export default normalizeMenu;
-
