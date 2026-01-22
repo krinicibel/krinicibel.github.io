@@ -88,6 +88,7 @@ for (const item of fs.readdirSync(ROOT)) {
       '.git',
       'node_modules',
       'tmp_site',
+      'dist',
       'package.json',
       'package-lock.json',
       '.github',
@@ -155,7 +156,7 @@ const root = path.resolve('.');
 function collect(dir) {
   const out = {};
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith('.') || entry.name === 'templates' || entry.name === '_notes') continue;
+    if (entry.name.startsWith('.') || ['templates', 'entries', 'dist', '_notes'].includes(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       Object.assign(out, collect(full));
