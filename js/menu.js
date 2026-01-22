@@ -3,7 +3,7 @@ import menuRaw from '../data/menu.json';
 import { localizeMenu } from './menu-generator.js';
 // Инициализация меню — выполняется сразу при импорте/загрузке модуля
 export function initMenu() {
-  // compute prefix helper (соответствует include.js)
+  // compute prefix helper
   function computePrefix() {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
     const isFile = pathParts.length === 0 || /\.[a-zA-Z0-9]+$/.test(pathParts[pathParts.length - 1]);
