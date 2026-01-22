@@ -82,7 +82,17 @@ for (const item of fs.readdirSync(ROOT)) {
   const src = path.join(ROOT, item);
   const dest = path.join(TMP, item);
   if (
-    ['templates', 'scripts', '.git', 'node_modules', 'tmp_site', 'package.json', 'package-lock.json', '.github', '.vscode'].includes(item)
+    [
+      'templates',
+      'scripts',
+      '.git',
+      'node_modules',
+      'tmp_site',
+      'package.json',
+      'package-lock.json',
+      '.github',
+      '.vscode',
+    ].includes(item)
   )
     continue;
   // copy directories and files (excluding _notes directories inside)
