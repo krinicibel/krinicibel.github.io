@@ -1,5 +1,11 @@
 name: Build and Deploy to GitHub Pages
 
+# Разрешения необходимы для actions/deploy-pages@v4 (OIDC)
+permissions:
+  id-token: write
+  pages: write
+  contents: read
+
 on:
   push:
     branches: [main]
