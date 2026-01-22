@@ -96,21 +96,36 @@
     }, { passive: true });
 
     // ==========================
-    // Header scroll effect
+    // Header scroll effect (rAF + hysteresis to avoid flicker)
     // ==========================
     if (header) {
-      let lastScroll = 0;
-      
+      let ticking = false;
+      let scrolledState = header.classList.contains('header-scrolled');
+      const ADD_THRESHOLD = 60;    // scroll >= this -> add class
+      const REMOVE_THRESHOLD = 40; // scroll < this -> remove class
+
+      // Initialize based on current position
+      const initScroll = window.pageYOffset || 0;
+      if (initScroll > ADD_THRESHOLD && !scrolledState) {
+        header.classList.add('header-scrolled');
+        scrolledState = true;
+      }
+
       window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-          header.classList.add('header-scrolled');
-        } else {
-          header.classList.remove('header-scrolled');
+        const current = window.pageYOffset || 0;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (current > ADD_THRESHOLD && !scrolledState) {
+              header.classList.add('header-scrolled');
+              scrolledState = true;
+            } else if (current < REMOVE_THRESHOLD && scrolledState) {
+              header.classList.remove('header-scrolled');
+              scrolledState = false;
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
-        
-        lastScroll = currentScroll;
       }, { passive: true });
     }
 

@@ -189,17 +189,40 @@ p {
 /* ==========================
    Header - Enhanced
    ========================== */
-header {
+/* Fixed header: always pinned to top */
+header, .site-header {
   background: var(--primary-gradient);
   color: #fff;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
-  transition: var(--transition);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1200;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
   /* removed blur for reduced visual effects */
   backdrop-filter: none;
-} 
+  -webkit-backdrop-filter: none;
+  will-change: box-shadow, opacity;
+  overflow: visible;
+}
 
+/* Overlay pseudo-element for smooth color transition (prevents flicker) */
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,119,190,0);
+  opacity: 0;
+  transition: opacity var(--transition), background-color var(--transition);
+  pointer-events: none;
+  z-index: 0;
+  will-change: opacity, transform;
+  transform: translateZ(0);
+}
+
+/* thin separator under header */
 header::after {
   content: '';
   position: absolute;
@@ -208,11 +231,25 @@ header::after {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  z-index: 3;
 }
 
 header.header-scrolled {
   box-shadow: var(--shadow-lg);
-  background: rgba(0, 119, 190, 0.95);
+}
+
+header.header-scrolled::before {
+  background-color: rgba(0, 119, 190, 0.95);
+  opacity: 1;
+}
+
+/* Ensure page anchors and headings are visible below fixed header */
+html {
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 .header-inner {
@@ -221,6 +258,8 @@ header.header-scrolled {
   justify-content: space-between;
   height: var(--header-height);
   gap: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Logo */
@@ -647,13 +686,13 @@ body.no-scroll {
    Main Content
    ========================== */
 main {
-  padding: 2rem 0;
+  padding: calc(var(--header-height) + 2rem) 0 2rem;
   max-width: var(--container-max);
   margin: 0 auto;
   padding-left: var(--page-gutter);
   padding-right: var(--page-gutter);
   min-height: calc(100vh - var(--header-height) - 100px);
-}
+} 
 
 section {
   margin-bottom: 3rem;
