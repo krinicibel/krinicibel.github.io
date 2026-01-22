@@ -180,8 +180,10 @@ export function initMenu() {
 
       if (!submenu) return;
 
-      toggle.setAttribute('aria-expanded', !isOpen);
-      submenu.classList.toggle('open', !isOpen);
+      const newOpen = !isOpen;
+      toggle.setAttribute('aria-expanded', newOpen ? 'true' : 'false');
+      submenu.classList.toggle('open', newOpen);
+      submenu.setAttribute('aria-hidden', newOpen ? 'false' : 'true');
     });
   });
 
