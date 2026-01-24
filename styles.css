@@ -45,7 +45,7 @@ main {
     border: 2px solid #0077be;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+    box-sizing: border-box;
     outline: none;
 }
 
@@ -75,6 +75,7 @@ nav {
     width: 100%;
 }
 
+
 ul.mmenuu {
     list-style: none;
     margin: 0;
@@ -82,10 +83,11 @@ ul.mmenuu {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    position: relative; 
 }
 
 ul.mmenuu > li {
-    position: relative;
+    position: static; 
     flex-grow: 1;
 }
 
@@ -109,7 +111,7 @@ ul.ssubmenuu {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px;
+    width: 100%; 
     display: none;
     background-color: #0077be;
     z-index: 1000;
@@ -117,6 +119,7 @@ ul.ssubmenuu {
     list-style: none;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
 }
+
 
 ul.ssubmenuu > li > a {
     display: block;
