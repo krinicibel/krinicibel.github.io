@@ -33,6 +33,26 @@ main {
     padding: 0 10px;
 }
 
+.search-container {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 15px;
+    border: 2px solid #0077be;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+    outline: none;
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 5px rgba(0, 119, 190, 0.5);
+}
+
 section {
     margin-bottom: 30px;
 }
@@ -48,13 +68,6 @@ p {
 img {
     max-width: 100%;
     height: auto;
-}
-
-footer {
-    background-color: #0077be;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
 }
 
 nav {
@@ -162,5 +175,3 @@ table tbody tr:nth-child(even) {
         width: 100%;
     }
 }
-
-
