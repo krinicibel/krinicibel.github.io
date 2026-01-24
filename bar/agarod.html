@@ -7,58 +7,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
-    <!-- <nav>
-      <ul class="mmenuu">
-    <li><a href=#b>Брэсцкая область</a>
-        <ul class="ssubmenuu">
-            <li><a href=#bar>Барановичский район</a></li>
-            <li><a href=#ber>Березовский район</a></li>
-            <li><a href=#iva>Ивацевичский район</a></li>
-            <li><a href=#kam>Каменецкий район</a></li>
-            <li><a href=#lah>Ляховичский район</a></li>
-            <li><a href=#pru>Пружанский район</a></li>
-
-        </ul>
-    </li>
-    <li><a href=#go>Гомельская область</a>
-        <ul class="ssubmenuu">
-            <li><a href=#moz>Мозырьский район</a></li>
-        </ul>
-    </li>
-    <li><a href=#g>Гродзенская область</a>
-        <ul class="ssubmenuu">
-            <li><a href=#gro>Гродненский район</a></li>
-			<li><a href=#dya>Дятловский район</a></li>
-            <li><a href=#zel>Зельвенский район</a></li>
-            <li><a href=#nov>Новогрудский район</a></li>
-            <li><a href=#slo>Слонимский район</a></li>
-            <li><a href=#slo>Щучинский район</a></li>
-        </ul>
-    </li>
-    <li><a href=#m>Мінская область</a>
-        <ul class="ssubmenuu">
-            <li><a href=#dze>Дзержинский район</a></li>
-            <li><a href=#kle>Клецкий район</a></li>
-            <li><a href=#log>Логойский район</a></li>
-            <li><a href=#min>Минский район</a></li>
-            <li><a href=#nes>Несвижский район</a></li>
-            <li><a href=#sto>Столбцовский район</a></li>
-        </ul>
-    </li>
-    <li><a href=#mo>Могилевская область</a>
-        <ul class="ssubmenuu">
-            <li><a href=#osi>Осиповичский район</a></li>
-        </ul>
-    </li>
-    <li> <a href="map.html">Интерактиваная карта</a>
-    </li>
-     <li><a href=opv.html>Загрузить OPV</a>
-    </li>
-</ul>
-    </nav> -->
+    <div id="header-container"></div>
     <main>
       <section>
         <h2>Огородники</h2>
@@ -74,10 +23,25 @@
       <p><img src="ogr/Screenshot_1.png" alt=""/></p>
       <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
       	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=25.834007263183597%2C53.237276836240945%2C25.922412872314457%2C53.277275271890666&amp;layer=mapnik&amp;marker=53.25728072949767%2C25.878210067749023" style="border: 1px solid black"></iframe>
-      <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span><span lang="ru"> </span>53.2573517, 25.8782448</p>
+      <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span> 53.2573517, 25.8782448</p>
     </main>
-      <footer>
-      <p class="thumb"> Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна <br>
-  </footer>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
 </body>
 </html>
