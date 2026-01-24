@@ -7,44 +7,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
   </head>
   <body>
-    <header>
-      <h1>Криницы Беларуси</h1>
-    </header>
-    <!--<nav>
-      <ul class="mmenuu">
-    <li><a href="../index.html">Галоўная старонка</a>
-    </li>
-       <li><a href="../index.html#b">Брэсцкая вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#bar>Баранавіцкі раён</a></li>
-            <li><a href=../index.html#ber>Бярозаўскі раён</a></li>
-            <li><a href=../index.html#iva>Івацэвіцкі раён</a></li>
-            <li><a href=../index.html#lah>Ляхавіцкі раён</a></li>
-            <li><a href=../index.html#pru>Пружанскі раён</a></li>
-
-        </ul>
-    </li>
-    <li><a href=../index.html#g>Гродзенская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#gro>Гродзенскі раён</a></li>
-            <li><a href=../index.html#zel>Зэльвенскі раён</a></li>
-            <li><a href=../index.html#nov>Навагрудскі раён</a></li>
-            <li><a href=../index.html#slo>Слонімскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../index.html#m>Мінская вобласць</a>
-        <ul class="ssubmenuu">
-            <li><a href=../index.html#dze>Дзяржынскі раён</a></li>
-            <li><a href=../index.html#min>Мінскі раён</a></li>
-            <li><a href=../index.html#nes>Нясвіжскі раён</a></li>
-        </ul>
-    </li>
-    <li><a href=../opv.html>Загрузіць OPV</a>
-    </li>
-    <li><a href=../map.html>Інтэрактыўная карта</a>
-    </li>
-</ul>
-    </nav>-->
+    <div id="header-container"></div>
     <main>
       <section>
         <h2>Козловичи-1</h2>
@@ -63,6 +26,23 @@
       	<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.773711204528812%2C53.29589683559583%2C25.828557014465336%2C53.313617137819406&amp;layer=mapnik&amp;marker=53.30475790594757%2C25.80113410949707" style="border: 1px solid black"></iframe>
       <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span><span lang="ru"> </span>53.30479, 25.80115</p>
     </main>
-      <footer>Криницы Беларуси, 2017-2026. При использовании информации ссылка обязательна</footer>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
   </body>
 </html>
