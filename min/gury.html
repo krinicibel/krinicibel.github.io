@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Гуры</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    .textCentered {                        text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Гуры</h2>
+      </section>
+      <p dir="ltr">05.09.2025</p>
+      <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#min">Минский район</a> &gt; г. Заславль &gt; Гуры</p>
+  <p><a href="zas/photo_2026-01-24_07-00-47 (2).jpg"><img src="zas/photo_2026-01-24_07-00-47 (2).jpg"  width="259" height="346"></a> <a href="zas/photo_2026-01-24_07-00-47.jpg"><img src="zas/photo_2026-01-24_07-00-47.jpg" alt=""  width="259" height="346"></a></p>
+  <p dir="ltr">Находится в бывшей деревне Гуры, ныне часть Заславля. Сооружена каплица, а сам родник взят в ж/б кольца и оборудован как колодец. </p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.25437641143799%2C53.98185945416733%2C27.309222221374515%2C53.99914252593476&amp;layer=mapnik&amp;marker=53.990501886688364%2C27.28179931640625" style="border: 1px solid black"></iframe><br/><small>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.99078, 27.2822</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>

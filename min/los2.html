@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лошица-2</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    .textCentered {                        text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Лошица-2</h2>
+      </section>
+      <p dir="ltr">02.09.2017</p>
+      <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#min">Минский район</a> &gt; г. Минск &gt; Лошица-2</p>
+  <p><a href="min/unnamed.png"><img src="min/unnamed.png" width="265" height="238"></a> <a href="min/unnamed (1).png"><img src="min/unnamed (1).png" width="259" height="346"></a> <a href="min/unnamed (2).png"><img src="min/unnamed (2).png" width="246" height="381"></a></p>
+  <p dir="ltr">Ранее находился в д. Лошица, вошедшей в состав Минска. Сейчас деревня  снесена чуть менее чем полностью. Место около родника капитально благоустроено бывшими ее жителями. Оборудована купель и раздевалка, родник обложен камнями. Рядом есть скамейки.</p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.555384635925297%2C53.83931045680562%2C27.61023044586182%2C53.85665262575826&amp;layer=mapnik&amp;marker=53.84798243935589%2C27.582807540893555" style="border: 1px solid black"></iframe>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты: 53.84802, 27.58276</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Студенец</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Студенец</h2>
+      </section>
+      <p dir="ltr">03.07.2020</p>
+      <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Крутовцы &gt; Студенец</p>
+      <p><a href="kru/IMG_20200703_120405.jpg"><img src="kru/IMG_20200703_120405.jpg" width="259" height="346"></a> <a href="kru/photo_2026-01-24_13-21-52.jpg"><img src="kru/photo_2026-01-24_13-21-52.jpg" width="372" height="498"></a></p>
+      <div>
+        <div id="h.6d4f4b0d0a7ae5f3_8">
+          <div>
+            <div>
+              <p dir="ltr">Родник находится в лесу Постаи. Представляет собой лимнокрен. По хим. анализу 2020 г.&nbsp; в этом роднике самый низкий рН в Барановичском районе. Требует очистки и благоустройства.</p>
+            </div>
+          </div>
+        </div>
+  </div>
+      <h2 _locid="OverviewTitle"><span lang="ru"><span lang="ru">Анализ воды</span></span></h2>
+      <p _locid="OverviewTitle"><img src="kru/untitled.png" alt="" width="435" height="203"></p>
+      <p _locid="OverviewTitle"><img src="kru/untitled3.png" alt="" width="596" height="514"></p>
+      <p _locid="OverviewTitle"><img src="kru/untitled2.png" alt="" width="600" height="565"></p>
+      <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+      	<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.823321342468265%2C53.27487689907226%2C25.87816715240479%2C53.2926059215608&amp;layer=mapnik&amp;marker=53.283742329757374%2C25.850744247436523" style="border: 1px solid black"></iframe><br/><small>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.28364, 25.85093</p>
+<div id="footer-container"></div>
+
+  <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Логойск-1</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    .textCentered {                        text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Логойск-1</h2>
+      </section>
+      <p dir="ltr">12.10.2025</p>
+      <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#log">Логойский район</a> &gt; г. Логойск &gt; Логойск-1</p>
+  <p><a href="log1/photo_2026-01-21_18-39-41 (2).jpg"><img src="log1/photo_2026-01-21_18-39-41 (2).jpg" width="259" height="346"></a> <a href="log1/photo_2026-01-21_18-39-41.jpg"><img src="log1/photo_2026-01-21_18-39-41.jpg" width="466" height="356"></a></p>
+  <p dir="ltr">Родник выполнен в виде колодца, обложенного камнями. Рядом, казалось бы, другой выход воды, но это слив воды из фонтана. Родниковый ручей впадает в пруд на р. Гайна.</p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.834291458129886%2C54.199860642472956%2C27.861714363098148%2C54.20853307605359&amp;layer=mapnik&amp;marker=54.204197086808094%2C27.848002910614014" style="border: 1px solid black"></iframe>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты: 54.2042, 27.84799</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>

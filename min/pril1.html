@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Прилуки-1</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    .textCentered {                        text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Прилуки-1</h2>
+      </section>
+      <p dir="ltr">11.09.2024</p>
+      <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#min">Минский район</a> &gt; д. Прилуки &gt; Прилуки-1</p>
+  <p><a href="pri/11.jpg"><img src="pri/11.jpg" width="299" height="345"></a> <a href="pri/12.jpg"><img src="pri/12.jpg" width="246" height="381"></a></p>
+  <p dir="ltr">Родник находится у моста через р. Птичь.&nbsp; Каптирован ж/б кольцом с выводом воды через трубу. Вода из родника образует ручей -&nbsp; левый&nbsp; приток р. Птичь.</p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.434449195861816%2C53.786049189202025%2C27.461013793945316%2C53.79483359570607&amp;layer=mapnik&amp;marker=53.790435284438104%2C27.447731494903564" style="border: 1px solid black"></iframe><br/>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.790467, 27.447753</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>

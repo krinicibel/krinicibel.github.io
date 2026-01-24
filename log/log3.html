@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Логойск-3</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    .textCentered {                        text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Логойск-3</h2>
+      </section>
+      <p dir="ltr">12.10.2025</p>
+      <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#log">Логойский район</a> &gt; г. Логойск &gt; Логойск-3</p>
+  <p><img src="log3/photo_2026-01-21_18-39-04.jpg" width="259" height="346"> <img src="log3/photo_2026-01-21_18-39-05.jpg" width="461" height="337"></p>
+  <p dir="ltr">Родник относится к типу лимнокрен. Родниковый ручей питает пруд на р. Гайна.</p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.834398746490482%2C54.199542004974546%2C27.861821651458744%2C54.20821450543062&amp;layer=mapnik&amp;marker=54.20387848274828%2C27.84811019897461" style="border: 1px solid black"></iframe>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты: 54.20389, 27.84802</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>

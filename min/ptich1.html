@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Птичь-1</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    .textCentered {                        text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Птичь-1</h2>
+      </section>
+      <p dir="ltr">02.09.2017</p>
+      <p><a href="../index.html#m">Минская область</a> &gt; <a href="../index.html#min">Минский район</a> &gt; д. Волчковичи &gt; Птичь-1</p>
+  <p><a href="vol/11.jpg"><img src="vol/11.jpg" width="284" height="205"></a> <a href="vol/12.jpg"><img src="vol/12.jpg"width="186" height="337"></a> <a href="vol/13.jpg"><img src="vol/13.jpg" width="259" height="346"></a></p>
+  <p dir="ltr">Родник каптирован железной бочкой с выводом воды через трубу.&nbsp;</p>
+  <p dir="ltr">В 2024 году на роднике установлена беседка и место вокруг благоустраивается. Буквально недавно (15.09.2024) привезен гравий и усыпана дорожка.&nbsp;</p>
+  <p dir="ltr">Родник пользуется огромной популярностью.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BnzZrd6AigA?si=buPnnRoUbZRsQLnw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.38348722457886%2C53.80394563166117%2C27.410910129547123%2C53.812624936945156&amp;layer=mapnik&amp;marker=53.80828550892068%2C27.39719867706299" style="border: 1px solid black"></iframe>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.80836, 27.39726</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>
