@@ -1,4 +1,3 @@
-/* --- Базовые настройки --- */
 body {
     margin: 0;
     padding: 0;
@@ -14,9 +13,22 @@ header {
     text-align: center;
 }
 
-/* --- НАВИГАЦИЯ (Flexbox версия) --- */
+footer {
+    background-color: #0077be;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer .thumb {
+    margin: 0;
+    color: #ffffff;
+    font-size: 14px;
+}
+
 nav {
-    background-color: #0077be; /* Цвет фона всей полосы меню */
+    background-color: #0077be;
     width: 100%;
 }
 
@@ -24,14 +36,14 @@ ul.mmenuu {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Используем гибкие контейнеры */
-    flex-wrap: wrap; /* Позволяет пунктам переноситься на новую строку */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 ul.mmenuu > li {
     position: relative;
-    flex-grow: 1; /* Пункты растягиваются, чтобы заполнить ширину */
+    flex-grow: 1;
 }
 
 ul.mmenuu > li > a {
@@ -42,20 +54,19 @@ ul.mmenuu > li > a {
     font-weight: bold;
     text-align: center;
     background-color: #0077be;
-    border: 1px solid #6495ED; /* Тонкая рамка, чтобы кнопки не сливались */
-    font-size: 13px; /* Оптимально для мобильных */
+    border: 1px solid #6495ED;
+    font-size: 13px;
 }
 
 ul.mmenuu > li > a:hover {
     background-color: #6495ED;
 }
 
-/* --- ВЫПАДАЮЩЕЕ МЕНЮ --- */
 ul.ssubmenuu {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px; /* Фиксированная ширина выпадашки */
+    width: 200px;
     display: none;
     background-color: #0077be;
     z-index: 1000;
@@ -78,17 +89,15 @@ ul.ssubmenuu > li > a:hover {
     text-decoration: underline;
 }
 
-/* Показ при наведении */
 ul.mmenuu > li:hover > ul.ssubmenuu {
     display: block;
 }
 
-/* --- АДАПТИВНОСТЬ ТАБЛИЦ --- */
 main {
     max-width: 100%;
     margin: 10px auto;
     padding: 0 5px;
-    overflow-x: hidden; /* Чтобы вся страница не шаталась */
+    overflow-x: hidden;
 }
 
 table {
@@ -96,31 +105,29 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     background: #fff;
-    font-size: 12px; /* Уменьшаем шрифт в таблицах для мобильных */
+    font-size: 12px;
 }
 
 table td, table th {
     border: 1px solid #ddd;
     padding: 8px 4px;
-    word-break: break-word; /* Позволяет переносить длинные координаты */
+    word-break: break-word;
 }
 
 table tbody tr:nth-child(even) {
     background: #f3f3f3;
 }
 
-/* --- СПЕЦИАЛЬНО ДЛЯ ТЕЛЕФОНОВ --- */
 @media screen and (max-width: 600px) {
     ul.mmenuu > li {
-        min-width: 50%; /* На очень узких экранах пункты будут по 2 в ряд */
+        min-width: 50%;
     }
     
     ul.mmenuu > li > a {
-        font-size: 11px; /* Еще немного уменьшаем текст меню */
+        font-size: 11px;
         padding: 8px 2px;
     }
 
-    /* На мобильных выпадающее меню лучше делать на всю ширину под пунктом */
     ul.ssubmenuu {
         width: 100%;
     }
