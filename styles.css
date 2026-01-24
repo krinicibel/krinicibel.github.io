@@ -1,8 +1,9 @@
+/* --- Базовые настройки --- */
 body {
-    background-color: #f0f8ff;
-    font-family: 'Verdana', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: 'Verdana', Arial, sans-serif;
+    background-color: #f0f8ff;
     font-size: 14px;
 }
 
@@ -13,74 +14,63 @@ header {
     text-align: center;
 }
 
-h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
+/* --- НАВИГАЦИЯ (Flexbox версия) --- */
 nav {
-    background-color: #87ceeb;
-    min-height: 50px; 
-    padding: 0;
+    background-color: #0077be; /* Цвет фона всей полосы меню */
+    width: 100%;
 }
 
 ul.mmenuu {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: flex; /* Используем гибкие контейнеры */
+    flex-wrap: wrap; /* Позволяет пунктам переноситься на новую строку */
+    justify-content: flex-start;
 }
 
 ul.mmenuu > li {
     position: relative;
+    flex-grow: 1; /* Пункты растягиваются, чтобы заполнить ширину */
 }
 
 ul.mmenuu > li > a {
     display: block;
     color: #fff;
-    padding: 12px 15px;
+    padding: 10px 5px;
     text-decoration: none;
     font-weight: bold;
+    text-align: center;
     background-color: #0077be;
-    border-right: 1px solid #005f99;
-    white-space: nowrap;
-}
-
-ul.mmenuu > li:last-child > a {
-    border-right: none;
+    border: 1px solid #6495ED; /* Тонкая рамка, чтобы кнопки не сливались */
+    font-size: 13px; /* Оптимально для мобильных */
 }
 
 ul.mmenuu > li > a:hover {
     background-color: #6495ED;
 }
 
+/* --- ВЫПАДАЮЩЕЕ МЕНЮ --- */
 ul.ssubmenuu {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 220px;
+    width: 200px; /* Фиксированная ширина выпадашки */
     display: none;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background-color: #0077be;
     z-index: 1000;
     padding: 0;
     list-style: none;
-}
-
-ul.ssubmenuu > li {
-    display: block;
-    width: 100%;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
 }
 
 ul.ssubmenuu > li > a {
     display: block;
     padding: 10px;
+    color: #ffffff;
     text-decoration: none;
-    color: #fff;
-    background-color: #0077be;
     border-bottom: 1px solid #6495ED;
+    background-color: #0077be;
 }
 
 ul.ssubmenuu > li > a:hover {
@@ -88,86 +78,50 @@ ul.ssubmenuu > li > a:hover {
     text-decoration: underline;
 }
 
+/* Показ при наведении */
 ul.mmenuu > li:hover > ul.ssubmenuu {
     display: block;
 }
 
+/* --- АДАПТИВНОСТЬ ТАБЛИЦ --- */
 main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-section {
-    margin-bottom: 30px;
-}
-
-h2 {
-    color: #0077be;
-    border-bottom: 2px solid #87ceeb;
-    padding-bottom: 5px;
-}
-
-p {
-    line-height: 1.5;
-}
-
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 0 5px;
+    overflow-x: hidden; /* Чтобы вся страница не шаталась */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px;
+    margin-bottom: 20px;
+    background: #fff;
+    font-size: 12px; /* Уменьшаем шрифт в таблицах для мобильных */
 }
 
 table td, table th {
-    padding: 10px;
     border: 1px solid #ddd;
-    vertical-align: top;
-    text-align: left;
-}
-
-table thead th {
-    background: #d8d8d8;
-    font-weight: bold;
+    padding: 8px 4px;
+    word-break: break-word; /* Позволяет переносить длинные координаты */
 }
 
 table tbody tr:nth-child(even) {
     background: #f3f3f3;
 }
 
-footer {
-    background-color: #0077be;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-@media screen and (max-width: 768px) {
+/* --- СПЕЦИАЛЬНО ДЛЯ ТЕЛЕФОНОВ --- */
+@media screen and (max-width: 600px) {
     ul.mmenuu > li {
-        flex-grow: 1;
-        text-align: center;
+        min-width: 50%; /* На очень узких экранах пункты будут по 2 в ряд */
+    }
+    
+    ul.mmenuu > li > a {
+        font-size: 11px; /* Еще немного уменьшаем текст меню */
+        padding: 8px 2px;
     }
 
-    ul.mmenuu > li > a {
-        border-bottom: 1px solid #005f99;
-        border-right: none;
-    }
-    
+    /* На мобильных выпадающее меню лучше делать на всю ширину под пунктом */
     ul.ssubmenuu {
-        position: static;
         width: 100%;
-        box-shadow: none;
-    }
-    
-    ul.ssubmenuu > li > a {
-        padding-left: 30px;
-        background-color: #006bb3;
     }
 }
