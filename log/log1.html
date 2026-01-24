@@ -11,7 +11,7 @@
     </style>
   </head>
   <body>
-    <div id="header-container"></div>
+    <div data-include="/templates/header.html"></div>
     <main>
   <section>
         <h2>Логойск-1</h2>
@@ -23,23 +23,8 @@
   <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
 <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=27.834291458129886%2C54.199860642472956%2C27.861714363098148%2C54.20853307605359&amp;layer=mapnik&amp;marker=54.204197086808094%2C27.848002910614014" style="border: 1px solid black"></iframe>
   <p _locid="OverviewTitle"> <span lang="ru">Координаты: 54.2042, 27.84799</span></p>
-<div id="footer-container"></div>
+<div data-include="/templates/footer.html"></div>
 
-    <script>
-        async function includeHTML(id, file) {
-            try {
-                const response = await fetch(file);
-                if (response.ok) {
-                    const content = await response.text();
-                    document.getElementById(id).innerHTML = content;
-                }
-            } catch (e) {
-                console.error('Ошибка загрузки:', file);
-            }
-        }
-
-        includeHTML('header-container', '../header.html');
-        includeHTML('footer-container', '../footer.html');
-    </script>
+    
   </body>
 </html>
