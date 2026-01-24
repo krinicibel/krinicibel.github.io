@@ -27,6 +27,36 @@ footer .thumb {
     font-size: 14px;
 }
 
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #0077be;
+}
+
+p {
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #0077be;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
 nav {
     background-color: #0077be;
     width: 100%;
@@ -132,3 +162,4 @@ table tbody tr:nth-child(even) {
         width: 100%;
     }
 }
+
