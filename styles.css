@@ -28,11 +28,13 @@ footer .thumb {
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 10px;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 0 5px;
+    overflow-x: hidden;
 }
 
+/* Контейнер поиска */
 .search-container {
     margin-bottom: 25px;
     text-align: center;
@@ -70,11 +72,11 @@ img {
     height: auto;
 }
 
+/* Навигация */
 nav {
     background-color: #0077be;
     width: 100%;
 }
-
 
 ul.mmenuu {
     list-style: none;
@@ -83,11 +85,10 @@ ul.mmenuu {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    position: relative; 
 }
 
 ul.mmenuu > li {
-    position: static; 
+    position: relative; /* Контекст для выпадающего списка */
     flex-grow: 1;
 }
 
@@ -101,25 +102,27 @@ ul.mmenuu > li > a {
     background-color: #0077be;
     border: 1px solid #6495ED;
     font-size: 13px;
+    box-sizing: border-box;
 }
 
 ul.mmenuu > li > a:hover {
     background-color: #6495ED;
 }
 
+/* Выпадающее меню */
 ul.ssubmenuu {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%; 
+    width: 100%; /* Растягивается на всю ширину родительского <li> */
     display: none;
     background-color: #0077be;
     z-index: 1000;
     padding: 0;
     list-style: none;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    box-sizing: border-box;
 }
-
 
 ul.ssubmenuu > li > a {
     display: block;
@@ -128,6 +131,7 @@ ul.ssubmenuu > li > a {
     text-decoration: none;
     border-bottom: 1px solid #6495ED;
     background-color: #0077be;
+    text-align: left; /* Текст районов обычно лучше смотрится слева */
 }
 
 ul.ssubmenuu > li > a:hover {
@@ -139,13 +143,7 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
     display: block;
 }
 
-main {
-    max-width: 100%;
-    margin: 10px auto;
-    padding: 0 5px;
-    overflow-x: hidden;
-}
-
+/* Таблицы */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -164,9 +162,10 @@ table tbody tr:nth-child(even) {
     background: #f3f3f3;
 }
 
+/* Адаптивность для мобильных */
 @media screen and (max-width: 600px) {
     ul.mmenuu > li {
-        min-width: 50%;
+        min-width: 50%; /* По 2 области в ряд на маленьких экранах */
     }
     
     ul.mmenuu > li > a {
