@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ковалевщина</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Ковалевщина</h2>
+      </section>
+      <p dir="ltr">15.03.2026</p>
+      <p><a href="../index.html#g">Гродненская область</a> &gt; <a href="../index.html#nov">Новогрудский район</a> &gt; д. Заполье &gt; Ковалевщина</p>
+      <p><a href="zap/photo_2026-03-15_22-45-09.jpg"><img src="zap/photo_2026-03-15_22-45-09.jpg" width="259" height="346"></a> <a href="zap/photo_2026-03-26_23-00-52.jpg"><img src="zap/photo_2026-03-26_23-00-52.jpg" width="259" height="346"></a></p>
+      <p dir="ltr">Родник находится у хутора Ковалевщина, на левом берегу р. Ятранка. Ориентир на родник - беседка на вершине склона, ниже которой он и располагается. </p>
+      <p dir="ltr">Рядом с хутором находится отреставрированная водяная мельница и зарыбленный пруд на реке. Родник также находится на частной территории. Представляет собой гелокрен. Небольшой ручей стекает в р. Ятранку.</p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=25.7266116142273%2C53.43500336072764%2C25.741202831268314%2C53.445560865999276&amp;layer=mapnik&amp;marker=53.44028244127352%2C25.733907222747803" style="border: 1px solid black"></iframe>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты:&nbsp;53.44028, 25.73391</span></p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>
