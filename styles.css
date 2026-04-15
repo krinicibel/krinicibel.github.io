@@ -135,6 +135,35 @@ ul.ssubmenuu > li > a:hover {
 ul.mmenuu > li:hover > ul.ssubmenuu {
     display: block;
 }
+table {
+    width: 100%;
+    border-collapse: collapse; /* Убирает двойные границы */
+    margin: 20px 0;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+table, th, td {
+    border: 1px solid #ccc; 
+}
+
+th, td {
+    padding: 8px 12px; 
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table a {
+    color: #0077be;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 600px) {
     ul.mmenuu > li {
