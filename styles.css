@@ -7,14 +7,14 @@ body {
 }
 
 header {
-    background-color: #0077be;
+    background-color: #3c5a96;
     color: #fff;
     padding: 15px;
     text-align: center;
 }
 
 footer {
-    background-color: #0077be;
+    background-color: #3c5a96;
     color: #ffffff;
     padding: 20px;
     text-align: center;
@@ -42,7 +42,7 @@ main {
     width: 100%;
     max-width: 600px;
     padding: 12px 15px;
-    border: 2px solid #0077be;
+    border: 2px solid #3c5a96;
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
@@ -71,7 +71,7 @@ img {
 }
 
 nav {
-    background-color: #0077be;
+    background-color: #3c5a96;
     width: 100%;
 }
 
@@ -96,7 +96,7 @@ ul.mmenuu > li > a {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
-    background-color: #0077be;
+    background-color: #3c5a96;
     border: 1px solid #6495ED;
     font-size: 13px;
 }
@@ -111,7 +111,7 @@ ul.ssubmenuu {
     left: 0;
     width: 100%;
     display: none;
-    background-color: #0077be;
+    background-color: #3c5a96;
     z-index: 1000;
     padding: 0;
     list-style: none;
