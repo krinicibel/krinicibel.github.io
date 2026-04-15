@@ -28,13 +28,11 @@ footer .thumb {
 }
 
 main {
-    max-width: 100%;
-    margin: 10px auto;
-    padding: 0 5px;
-    overflow-x: hidden;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 10px;
 }
 
-/* Контейнер поиска */
 .search-container {
     margin-bottom: 25px;
     text-align: center;
@@ -72,7 +70,6 @@ img {
     height: auto;
 }
 
-/* Навигация */
 nav {
     background-color: #0077be;
     width: 100%;
@@ -88,7 +85,7 @@ ul.mmenuu {
 }
 
 ul.mmenuu > li {
-    position: relative; /* Контекст для выпадающего списка */
+    position: relative; 
     flex-grow: 1;
 }
 
@@ -102,26 +99,23 @@ ul.mmenuu > li > a {
     background-color: #0077be;
     border: 1px solid #6495ED;
     font-size: 13px;
-    box-sizing: border-box;
 }
 
 ul.mmenuu > li > a:hover {
     background-color: #6495ED;
 }
 
-/* Выпадающее меню */
 ul.ssubmenuu {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%; /* Растягивается на всю ширину родительского <li> */
+    width: 100%;
     display: none;
     background-color: #0077be;
     z-index: 1000;
     padding: 0;
     list-style: none;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-    box-sizing: border-box;
 }
 
 ul.ssubmenuu > li > a {
@@ -131,7 +125,6 @@ ul.ssubmenuu > li > a {
     text-decoration: none;
     border-bottom: 1px solid #6495ED;
     background-color: #0077be;
-    text-align: left; /* Текст районов обычно лучше смотрится слева */
 }
 
 ul.ssubmenuu > li > a:hover {
@@ -143,31 +136,11 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
     display: block;
 }
 
-/* Таблицы */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background: #fff;
-    font-size: 12px;
-}
-
-table td, table th {
-    border: 1px solid #ddd;
-    padding: 8px 4px;
-    word-break: break-word;
-}
-
-table tbody tr:nth-child(even) {
-    background: #f3f3f3;
-}
-
-/* Адаптивность для мобильных */
 @media screen and (max-width: 600px) {
     ul.mmenuu > li {
-        min-width: 50%; /* По 2 области в ряд на маленьких экранах */
+        min-width: 50%;
     }
-    
+
     ul.mmenuu > li > a {
         font-size: 11px;
         padding: 8px 2px;
@@ -176,4 +149,33 @@ table tbody tr:nth-child(even) {
     ul.ssubmenuu {
         width: 100%;
     }
+}
+
+.water{
+    background-color: #0078D7; 
+
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 C18 28 15 35 15 42 A15 15 0 0 0 45 42 C45 35 42 28 30 10 Z' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 C18 28 15 35 15 42 A15 15 0 0 0 45 42 C45 35 42 28 30 10 Z' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    background-repeat: repeat;
+
+    box-shadow: 
+        inset 0 15px 15px -10px rgba(255, 255, 255, 0.4),
+        inset 0 -20px 30px rgba(0, 40, 80, 0.3);      
+    border-top: 1px solid rgba(255, 255, 255, 0.2);  
+
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 15px; /* Отступы внутри панели */
+    font-family: sans-serif;
+    position: relative;
+}
+
+.water .thumb {
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 15px;
+    color: #ffffff;
 }
