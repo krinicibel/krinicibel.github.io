@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Окменица</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+  <div id="header-container"></div>
+    <main>
+  <section>
+        <h2>Окменица</h2>
+      </section>
+      <p dir="ltr">18.07.2026</p>
+      <p><a href="../index.html#v">Витебская область</a> &gt; <a href="../index.html#bra">Браславский район</a> &gt; д. Чернишки &gt; Окменица</p>
+      <p><a href="photo_2026-07-20_21-46-25.jpg"><img src="photo_2026-07-20_21-46-25.jpg" width="397" height="299"></a> <a href="photo_2026-07-20_21-46-26.jpg"><img src="photo_2026-07-20_21-46-26.jpg" width="396"></a></p>
+      <p dir="ltr">Родник располагается к западу от д. Чернишки, недалеко от турстоянки &quot;Окменица&quot;. Существует и название Зимник. Родник закован в ж/б кольцо с выводом воды через отверстие. В роднике содержится сероводород и отмечено высокое содержание железа.</p>
+  <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=26.977958679199222%2C55.70610319437831%2C27.032804489135746%2C55.72266307860577&amp;layer=mapnik&amp;marker=55.714384014005766%2C27.00538158416748" style="border: 1px solid black"></iframe>
+  <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>55.71436, 27.00536</p>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>
