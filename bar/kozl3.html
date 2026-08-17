@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Козловичи-3</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+      <section>
+        <h2>Козловичи-3</h2>
+      </section>
+      <p dir="ltr">13.08.2026</p>
+      <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Козловичи &gt; Козловичи-3</p>
+      <p><a href="koz/photo_2026-08-17_14-46-27 (2).jpg"><img src="koz/photo_2026-08-17_14-46-27 (2).jpg"  width="397" height="303"></a> <a href="koz/photo_2026-08-17_14-46-27.jpg"><img src="koz/photo_2026-08-17_14-46-27.jpg"  width="225" height="303"></a></p>
+      <p dir="ltr">Родник расположен в заречной хуторской части деревни Козловичи, в низине у заброшенного дома №9А по ул. Подгорной.</p>
+      <p dir="ltr">Чтобы попасть к роднику при движении по  дороге Голынка-Козловичи после придорожного креста и дома слева свернуть направо на сначала покрытую гравием дорогу, пройти 300 м до дома, спуститься в речную долину по заросшему крапивой участку.</p>
+      <p dir="ltr">Каптирован железобетонным кольцом, вода переливом через кольцо стекает в безымяную реку, чьим левым притоком является родниковый ручей. Немного восточнее родника находятся два кренполя.      </p>
+      <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed?bbox=25.798779129981998%2C53.30120701274281%2C25.80563485622406%2C53.303402943328074&amp;layer=mapnik&amp;marker=53.302306595019594%2C25.802206993103027" style="border: 1px solid black"></iframe>
+<p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.30231, 25.80220</p>
+    </main>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+  </body>
+</html>
