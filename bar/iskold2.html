@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ишколдь-2</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+      <section>
+        <h2>Ишколдь-2</h2>
+      </section>
+      <p _locid="OverviewTitle">27.08.2026</p>
+      <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Ишколдь &gt; Ишколдь-2</p>
+      <p><a href="isk/photo_2026-08-28_17-21-54.jpg"><img src="isk/photo_2026-08-28_17-21-54.jpg" width="547" height="749"></a> </p>
+      <p>Родник расположен в северной части д. Ишколдь, в 40 м на север от дома №28 по ул. Цветочной, в ручье.</p>
+      <p>Каптирован железным кольцом, накрытым крышкой. Из-за деструктивных действий бобров в виде сооружения плотины выше по течению ручья, родник оказался затоплен, и сейчас находится в его русле. Как напоминание о прежнем  использовании родника для питья, рядом на палке висит кружка. Ручей впадает в р. Ишколдянку - левый приток р. Уша.</p>
+      <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+      	<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed?bbox=26.30564689636231%2C53.32431151982718%2C26.415338516235355%2C53.35941385155615&amp;layer=mapnik&amp;marker=53.34186629767482%2C26.360492706298828" style="border: 1px solid black"></iframe>
+      <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.34188, 26.36051</p>
+    </main>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+</body>
+</html>

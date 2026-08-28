@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ишколдь-1</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+      <section>
+        <h2>Ишколдь-1</h2>
+      </section>
+      <p _locid="OverviewTitle">27.08.2026</p>
+      <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Ишколдь &gt; Ишколдь-1</p>
+      <p><a href="isk/1_photo_2026-08-28_16-50-37.jpg"><img src="isk/1_photo_2026-08-28_16-50-37.jpg" width="398" height="305"></a> <a href="isk/1_photo_2026-08-28_16-50-38.jpg"><img src="isk/1_photo_2026-08-28_16-50-38.jpg" width="225" height="303"></a></p>
+      <p>Родник расположен в центре д. Ишколдь, в 300 м на северо-запад от костела, на берегу пруда. </p>
+      <p>Чтобы попасть к роднику со стороны костела, пройти это расстояние, дойти до поворота на ул. Луговую, но свернуть на тропу прямо. Слева от вас будет погреб, и вскоре вы окажетесь у калитки.</p>
+      <p>К роднику от калитки уложены ступеньки. Каптирован кольцом из нержавейки с выводом воды через трубу. На веревке к крышке привязана кружка. Вода попадает в пруд, находящийся в долине р. Ишколдянки - левого притока р. Уша.</p>
+      <p>Несмотря на известность и хорошее благоустройство, в родниковой воде ощущается превышение по уровню нитратов, подтвержденное местными, возившими воду на анализ. </p>
+      <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+      	<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed?bbox=26.306247711181644%2C53.31918467454872%2C26.41593933105469%2C53.35429122476513&amp;layer=mapnik&amp;marker=53.33674156183367%2C26.361093521118164" style="border: 1px solid black"></iframe>
+      <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.33672, 26.36120</p>
+    </main>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+</body>
+</html>

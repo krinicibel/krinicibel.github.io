@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Баратино-2</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+      <section>
+        <h2>Баратино-2</h2>
+      </section>
+      <p _locid="OverviewTitle">27.08.2026</p>
+      <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Баратино &gt; Баратино-2</p>
+      <p><a href="bar/2_photo_2026-08-28_12-13-43.jpg"><img src="bar/2_photo_2026-08-28_12-13-43.jpg" width="345" height="608"></a> <a href="bar/2_photo_2026-08-28_12-11-58.jpg"><img src="bar/2_photo_2026-08-28_12-11-58.jpg" width="345" height="608"></a></p>
+      <p>Родник расположен в центральной части деревни, на западной части пруда со строны участка №14. Закован в железное кольцо и накрыт крышкой. Частично подтоплен. Вода попадает в пруд, соединенный с мелиоративными каналами, впадающими в р. Уша. </p>
+      <p>По словам местного жителя, родники существовали еще задолго до создания пруда в брежневские времена.</p>
+      <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed?bbox=26.29757881164551%2C53.334870879836444%2C26.40727043151856%2C53.36996452219418&amp;layer=mapnik&amp;marker=53.35242131259936%2C26.35242462158203" style="border: 1px solid black"></iframe>
+      <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.35238, 26.35240</p>
+    </main>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+</body>
+</html>

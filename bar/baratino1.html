@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Баратино-1</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css">
+    <link type="image/x-icon" rel="shortcut icon" href="file:///C|/Users/USER/Desktop/krb/favicon.ico">
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main>
+      <section>
+        <h2>Баратино-1</h2>
+      </section>
+      <p _locid="OverviewTitle">27.08.2026</p>
+      <p><a href="../index.html#b">Брестская область</a> &gt; <a href="../index.html#bar">Барановичский район</a> &gt; д. Баратино &gt; Баратино-1      </p>
+      <p><a href="bar/1_photo_2026-08-28_12-11-02.jpg"><img src="bar/1_photo_2026-08-28_12-11-02.jpg" width="244" height="319"></a> <a href="bar/1_photo_2026-08-28_12-11-03.jpg"><img src="bar/1_photo_2026-08-28_12-11-03.jpg" width="244" height="319"></a> <a href="bar/1_photo_2026-08-28_12-11-04.jpg"><img src="bar/1_photo_2026-08-28_12-11-04.jpg" width="244" height="319"></a></p>
+      <p>Родник расположен в центральной части деревни, на западной части пруда со строны участка №21. Закован в железное кольцо и накрыт крышкой. Вода слабым потоком отводится через трубу и попадает в пруд, соединенный с мелиоративными каналами, впадающими в р. Уша. На крышке оставлена пластмассовая кружка.</p>
+      <p>По словам местного жителя, родники существовали еще задолго до создания пруда в брежневские времена.</p>
+      <p>Минерализация - 278 мг/л.</p>
+      <h2 _locid="OverviewTitle"><span lang="ru">Местоположение</span></h2>
+<iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed?bbox=26.297321319580078%2C53.3349733850843%2C26.40701293945313%2C53.37006694308392&amp;layer=mapnik&amp;marker=53.3525237756643%2C26.3521671295166" style="border: 1px solid black"></iframe>
+      <p _locid="OverviewTitle"> <span lang="ru">Координаты: </span>53.35248, 26.35218</p>
+    </main>
+<div id="footer-container"></div>
+
+    <script>
+        async function includeHTML(id, file) {
+            try {
+                const response = await fetch(file);
+                if (response.ok) {
+                    const content = await response.text();
+                    document.getElementById(id).innerHTML = content;
+                }
+            } catch (e) {
+                console.error('Ошибка загрузки:', file);
+            }
+        }
+
+        includeHTML('header-container', '../header.html');
+        includeHTML('footer-container', '../footer.html');
+    </script>
+</body>
+</html>
